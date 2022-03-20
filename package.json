@@ -1,0 +1,23 @@
+{
+  "name": "protein-react-bootcamp",
+  "version": "1.0.0",
+  "description": "protein react bootcamp ödevleri",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live-server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygzaydn/protein-react-bootcamp.git"
+  },
+  "author": "ygzaydn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ygzaydn/protein-react-bootcamp/issues"
+  },
+  "homepage": "https://github.com/ygzaydn/protein-react-bootcamp#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
