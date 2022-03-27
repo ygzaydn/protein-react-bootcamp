@@ -45,8 +45,8 @@ body {
   border: 1px solid white;
   margin: 3rem;
   padding: 0 1rem;
-  position: relative;
-
+  display:flex;
+  flex-direction: column;
 }
 
 .cardItem__heroImage {
@@ -57,18 +57,17 @@ body {
   padding-top: 0.5rem;
   border-top: 1px solid white;
   max-width: 60vw;
-  height: 20rem;
+  flex-basis: max-content;
 }
-
-
 
 .cardItem__text {
   position: relative;
   min-height: 3rem;
-  top:-3rem;
+  top: -1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-basis: max-content;
 }
 
 .pagination {
@@ -113,12 +112,10 @@ body {
     margin-bottom: 5rem;
     justify-content: center;
   }
-  .cardItem__heroImage {
-    height: 80%;
-  }
+
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .cards {
     grid-template-columns: 1fr;
     margin: auto;

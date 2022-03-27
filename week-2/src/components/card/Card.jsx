@@ -15,9 +15,9 @@ const Card = ({ heroes, loading }) => {
                 : Gray
             }
             alt={!loading && el.name + "img"}
-            className={loading ? "cardItem__heroImage " : "cardItem__heroImage"}
+            className={"cardItem__heroImage"}
           />
-          <p className={loading ? "cardItem__text " : "cardItem__text"}>
+          <p className={"cardItem__text"}>
             {!loading ? el.name : "Loading..."}
           </p>
         </div>
