@@ -35,15 +35,17 @@ body {
   flex-wrap: wrap;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .cardItem {
   text-align: center;
   color: white;
-  font-family: "Roboto";
   border: 1px solid white;
-  margin: 3rem 1rem;
+  margin: 3rem;
   padding: 0 1rem;
+  position: relative;
 }
 
 .cardItem__heroImage {
@@ -53,18 +55,23 @@ body {
   left: 0;
   padding-top: 0.5rem;
   border-top: 1px solid white;
-  max-width: 40vw;
+  max-width: 60vw;
+  height: 15rem;
 }
+
+
 
 .cardItem__text {
   position: relative;
-  top: -1.5rem;
+  height: 3rem;
+
 }
 
 .pagination {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10vh;
+  padding-right: 3rem;
 }
 
 .pagination > span {
@@ -116,6 +123,7 @@ body {
   }
   .pagination {
     justify-content: space-evenly;
+    padding:0
   }
 
 }

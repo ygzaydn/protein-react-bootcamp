@@ -1,21 +1,28 @@
 import React from "react";
+import Gray from "../../assets/gray.png";
 
-const Card = ({ heroes }) => {
+const Card = ({ heroes, loading }) => {
   return (
-    <section className="cards">
+    <>
       {heroes.map((el) => (
         <div className="cardItem" key={el.id}>
           <img
             src={
-              el.thumbnail.path + "/portrait_large." + el.thumbnail.extension
+              !loading
+                ? el.thumbnail.path +
+                  "/portrait_xlarge." +
+                  el.thumbnail.extension
+                : Gray
             }
-            alt={el.name + "img"}
-            className="cardItem__heroImage"
+            alt={!loading && el.name + "img"}
+            className={loading ? "cardItem__heroImage " : "cardItem__heroImage"}
           />
-          <p className="cardItem__text">{el.name}k</p>
+          <p className={loading ? "cardItem__text " : "cardItem__text"}>
+            {!loading ? el.name : "Loading..."}
+          </p>
         </div>
       ))}
-    </section>
+    </>
   );
 };
 

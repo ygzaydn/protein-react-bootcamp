@@ -8,12 +8,13 @@ import Pagination from "./components/pagination/pagination";
 
 function App() {
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(0);
   return (
     <body>
       <Header />
       <section className="content">
-        <CardGrid page={page} setPage={setPage} />
-        <Pagination page={page} setPage={setPage} />
+        <CardGrid page={page} setLimit={setLimit} />
+        <Pagination page={page} setPage={setPage} limit={limit} />
       </section>
     </body>
   );

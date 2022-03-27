@@ -1,17 +1,47 @@
 import React from "react";
 
-const Pagination = () => {
+const Pagination = ({ page, setPage, limit }) => {
+  console.log(limit);
   return (
     <section className="pagination">
-      <span className="pagination__arrow">&larr;</span>
-      <span className="pagination__number">1</span>
-      <span className="pagination__dots">...</span>
-      <span className="pagination__number">99</span>
-      <span className="pagination__number pagination__number-active">100</span>
-      <span className="pagination__number">101</span>
-      <span className="pagination__dots">...</span>
-      <span className="pagination__number">200</span>
-      <span className="pagination__arrow">&rarr;</span>
+      {page > 1 && (
+        <span className="pagination__arrow" onClick={() => setPage(page - 1)}>
+          &larr;
+        </span>
+      )}
+      {page > 1 && (
+        <span className="pagination__number" onClick={() => setPage(1)}>
+          1
+        </span>
+      )}
+      {page > 3 && <span className="pagination__dots">...</span>}
+      {page > 2 && (
+        <span className="pagination__number" onClick={() => setPage(page - 1)}>
+          {page - 1}
+        </span>
+      )}
+
+      <span className="pagination__number pagination__number-active">
+        {page}
+      </span>
+      {page < limit && (
+        <span className="pagination__number" onClick={() => setPage(page + 1)}>
+          {page + 1}
+        </span>
+      )}
+
+      {page < limit - 2 && <span className="pagination__dots">...</span>}
+
+      {page < limit - 1 && (
+        <span className="pagination__number" onClick={() => setPage(78)}>
+          {limit}
+        </span>
+      )}
+      {page < limit - 1 && (
+        <span className="pagination__arrow" onClick={() => setPage(page + 1)}>
+          &rarr;
+        </span>
+      )}
     </section>
   );
 };
