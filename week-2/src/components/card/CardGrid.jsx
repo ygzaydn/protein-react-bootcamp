@@ -8,16 +8,19 @@ const CardGrid = ({ page, setLimit }) => {
   const [heroes, setHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {getData()}, [page]);
-
-
+  useEffect(() => {
+    window.location.hash = page
+    getData()
+    
+  }, [page]);
 
   const getData = () => {
     const storageItems = JSON.parse(sessionStorage.getItem("info")) || {};
     const limit = JSON.parse(sessionStorage.getItem("limit")) || 0;
   
-
     setLoading(true);
+
+
     if (!storageItems[page]) {
       axios
         .get(
