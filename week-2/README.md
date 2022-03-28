@@ -12,7 +12,7 @@ REACT_APP_PRIVATE_KEY = xxxxxxxxxx
 REACT_APP_ENCODED_KEY = xxxxxxxxx
 ```
 
-> Please note that ENCODED_KEY has to be generated for MarvelAPI. The algoritm to generate it `digest(paste0(ts, privateKey, publicKey), algo="md5")`. I use ts parameter as "1". You can use ![this link](https://www.md5hashgenerator.com/) to generate your own key. And please do not proceed before generate `.env.local` file.
+> Please note that ENCODED_KEY has to be generated for MarvelAPI. The algoritm to generate it `digest(paste0(ts, privateKey, publicKey), algo="md5")`. I use ts parameter as "1". You can use [this link](https://www.md5hashgenerator.com/) to generate your own key. And please do not proceed before generate `.env.local` file.
 
 After you set your `.env.local` file, next step is to install npm packages with `npm i`. Now you are ready to start.
 
@@ -22,5 +22,5 @@ Some key features that I've add:
 -   I have set sessionStorage to prevent unnecessary fetches.
 -   I have used sessionStorage to keep maximum number of elements that API serves us. By doing it, I am able to track maximum number of pages dynamically.
 -   I have simulated skeleton loading. When client ask data from server, users will see gray background until operation is successful.
--   I also used Google's firebase hosting service for lazy fingers. :smile: You can reach ![the website here](https://bootcampweektwo.web.app)
+-   I also used Google's firebase hosting service for lazy fingers. :smile: You can reach [the website here](https://bootcampweektwo.web.app)
 
