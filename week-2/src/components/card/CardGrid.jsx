@@ -7,9 +7,16 @@ import axios from "axios";
 const CardGrid = ({ page, setLimit }) => {
   const [heroes, setHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
+
+  useEffect(() => {getData()}, [page]);
+
+
+
+  const getData = () => {
     const storageItems = JSON.parse(sessionStorage.getItem("info")) || {};
     const limit = JSON.parse(sessionStorage.getItem("limit")) || 0;
+  
+
     setLoading(true);
     if (!storageItems[page]) {
       axios
@@ -36,7 +43,7 @@ const CardGrid = ({ page, setLimit }) => {
       setLimit(limit);
       setLoading(false);
     }
-  }, [page]);
+  }
 
   return (
     <section className="cards">

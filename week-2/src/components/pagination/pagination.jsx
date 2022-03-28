@@ -1,7 +1,7 @@
 import React from "react";
 
 const Pagination = ({ page, setPage, limit }) => {
-  console.log(limit);
+  
   return (
     <section className="pagination">
       {page > 1 && (

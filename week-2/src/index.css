@@ -37,6 +37,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: stretch;
   justify-items: stretch;
+  margin-bottom: 5rem;
 }
 
 .cardItem {
@@ -47,6 +48,8 @@ body {
   padding: 0 1rem;
   display:flex;
   flex-direction: column;
+  align-content: space-around;
+  height: 30rem;
 }
 
 .cardItem__heroImage {
@@ -56,18 +59,17 @@ body {
   left: 0;
   padding-top: 0.5rem;
   border-top: 1px solid white;
-  max-width: 60vw;
-  flex-basis: max-content;
+
 }
 
 .cardItem__text {
   position: relative;
   min-height: 3rem;
-  top: -1rem;
+  top: -1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: max-content;
+  margin: auto;
 }
 
 .pagination {
@@ -112,6 +114,10 @@ body {
     margin-bottom: 5rem;
     justify-content: center;
   }
+  .cardItem{
+    height: 20rem;
+  }
+  
 
 }
 
@@ -119,7 +125,7 @@ body {
   .cards {
     grid-template-columns: 1fr;
     margin: auto;
-    width:60%
+    width:70%
   }
   .header {
     margin-bottom: 5rem;
@@ -131,4 +137,8 @@ body {
     justify-content: space-evenly;
     padding:0
   }
+  .cardItem{
+    height: 18rem;
+  }
+  
 }

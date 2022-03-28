@@ -14,7 +14,7 @@ const Card = ({ heroes, loading }) => {
                   el.thumbnail.extension
                 : Gray
             }
-            alt={!loading && el.name + "img"}
+            alt={el.name + "img"}
             className={"cardItem__heroImage"}
           />
           <p className={"cardItem__text"}>
