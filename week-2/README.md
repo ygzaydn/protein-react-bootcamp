@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Protein React Bootcamp Week-2 Homework
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repo represents my solution for week-2 homework.
 
-## Available Scripts
+In order to make repo works, first step you have to is to create a ```.env.local``` file and add your keys to it. (I hide my public/private keys for protection issues.)
 
-In the project directory, you can run:
+An example `.env.local` file as follows:
 
-### `npm start`
+```
+REACT_APP_PUBLIC_KEY = xxxxxxxxxxxxx
+REACT_APP_PRIVATE_KEY = xxxxxxxxxx
+REACT_APP_ENCODED_KEY = xxxxxxxxx
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Please note that ENCODED_KEY has to be generated for MarvelAPI. The algoritm to generate it `digest(paste0(ts, privateKey, publicKey), algo="md5")`. I use ts parameter as "1". You can use ![this link](https://www.md5hashgenerator.com/) to generate your own key. And please do not proceed before generate `.env.local` file.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+After you set your `.env.local` file, next step is to install npm packages with `npm i`. Now you are ready to start.
 
-### `npm test`
+Some key features that I've add:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   I have used hash implementation. Every page has different hash value (for page 1: localhost:3000/#1, overall structure localhost:3000/#<pagenumber>). By doing that, I allow users to surf around desired page. (e.g localhost:3000/#53 directly goes to page 53.)
+-   I have set sessionStorage to prevent unnecessary fetches.
+-   I have used sessionStorage to keep maximum number of elements that API serves us. By doing it, I am able to track maximum number of pages dynamically.
+-   I have simulated skeleton loading. When client ask data from server, users will see gray background until operation is successful.
+-   I also used Google's firebase hosting service for lazy fingers. :smile: You can reach ![the website here](https://bootcampweektwo.web.app)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
