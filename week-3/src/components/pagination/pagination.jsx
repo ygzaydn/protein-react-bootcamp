@@ -1,18 +1,17 @@
 import React from "react";
 
 const Pagination = ({ page, setPage, limit }) => {
-  
   return (
     <section className="pagination">
       {page > 1 && (
         <>
-        <span className="pagination__arrow" onClick={() => setPage(page - 1)}>
-          &larr;
-        </span>
-         <span className="pagination__number" onClick={() => setPage(1)}>
-         1
-       </span>
-       </>
+          <span className="pagination__arrow" onClick={() => setPage(page - 1)}>
+            &larr;
+          </span>
+          <span className="pagination__number" onClick={() => setPage(1)}>
+            1
+          </span>
+        </>
       )}
 
       {page > 3 && <span className="pagination__dots">...</span>}
@@ -36,12 +35,12 @@ const Pagination = ({ page, setPage, limit }) => {
 
       {page < limit - 1 && (
         <>
-        <span className="pagination__number" onClick={() => setPage(78)}>
-          {limit}
-        </span>
-        <span className="pagination__arrow" onClick={() => setPage(page + 1)}>
-          &rarr;
-        </span>
+          <span className="pagination__number" onClick={() => setPage(78)}>
+            {limit}
+          </span>
+          <span className="pagination__arrow" onClick={() => setPage(page + 1)}>
+            &rarr;
+          </span>
         </>
       )}
     </section>

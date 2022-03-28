@@ -10,16 +10,15 @@ const CardGrid = ({ page, setLimit }) => {
 
   useEffect(() => {
     // useEffect hook to assign hash, and query if necessary
-    window.location.hash = page
+    window.location.hash = page;
     getData();
-    
   }, [page]);
 
   const getData = () => {
     // main function for query action. Helps us to store data on sessionStorage and avoids unnecessary fetch actions.
     const storageItems = JSON.parse(sessionStorage.getItem("info")) || {};
     const limit = JSON.parse(sessionStorage.getItem("limit")) || 0;
-  
+
     setLoading(true);
 
     if (!storageItems[page]) {
@@ -47,8 +46,7 @@ const CardGrid = ({ page, setLimit }) => {
       setLimit(limit);
       setLoading(false);
     }
-    
-  }
+  };
 
   return (
     <section className="cards">
