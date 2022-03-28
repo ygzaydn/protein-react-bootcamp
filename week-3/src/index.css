@@ -36,8 +36,8 @@ body {
   flex-wrap: wrap;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  align-items: stretch;
   justify-items: stretch;
+  align-items: stretch;
   margin-bottom: 5rem;
 }
 
@@ -49,18 +49,18 @@ body {
   padding: 0 1rem;
   display:flex;
   flex-direction: column;
-  align-content: space-around;
-  height: 30rem;
 }
 
 .cardItem__heroImage {
   position: relative;
-  width: 100%;
+  height: 100%;
   top: -3rem;
   left: 0;
   padding-top: 0.5rem;
   border-top: 1px solid white;
-
+  width: auto;
+  height: 80%;
+  background-size: cover;
 }
 
 .cardItem__text {
@@ -116,7 +116,7 @@ body {
     justify-content: center;
   }
   .cardItem{
-    height: 20rem;
+    max-width: 15rem;
   }
   
 }
@@ -125,7 +125,7 @@ body {
   .cards {
     grid-template-columns: 1fr;
     margin: auto;
-    width:70%
+    justify-items: center;
   }
   .header {
     margin-bottom: 5rem;
@@ -137,8 +137,6 @@ body {
     justify-content: space-evenly;
     padding:0
   }
-  .cardItem{
-    height: 18rem;
-  }
+ 
   
 }
