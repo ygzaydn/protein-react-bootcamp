@@ -9,17 +9,18 @@ const CardGrid = ({ page, setLimit }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    // useEffect hook to assign hash, and query if necessary
     window.location.hash = page
-    getData()
+    getData();
     
   }, [page]);
 
   const getData = () => {
+    // main function for query action. Helps us to store data on sessionStorage and avoids unnecessary fetch actions.
     const storageItems = JSON.parse(sessionStorage.getItem("info")) || {};
     const limit = JSON.parse(sessionStorage.getItem("limit")) || 0;
   
     setLoading(true);
-
 
     if (!storageItems[page]) {
       axios
@@ -46,6 +47,7 @@ const CardGrid = ({ page, setLimit }) => {
       setLimit(limit);
       setLoading(false);
     }
+    
   }
 
   return (
