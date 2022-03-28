@@ -53,14 +53,15 @@ body {
 
 .cardItem__heroImage {
   position: relative;
-  height: 100%;
   top: -3rem;
   left: 0;
   padding-top: 0.5rem;
   border-top: 1px solid white;
   width: auto;
-  height: 80%;
   background-size: cover;
+  align-self:center;
+  width: 11.5rem;
+  height: 16rem;
 }
 
 .cardItem__text {
@@ -118,6 +119,10 @@ body {
   .cardItem{
     max-width: 15rem;
   }
+  .cardItem__heroImage {
+    width: 9.5rem;
+    height: 14rem;
+  }
   
 }
 
@@ -136,6 +141,9 @@ body {
   .pagination {
     justify-content: space-evenly;
     padding:0
+  }
+  .cardItem{
+    width: 20rem;
   }
  
   
