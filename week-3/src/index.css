@@ -39,6 +39,7 @@ body {
   justify-items: stretch;
   align-items: stretch;
   margin-bottom: 5rem;
+  min-height: 40rem;
 }
 
 .cardItem {
@@ -51,7 +52,7 @@ body {
   flex-direction: column;
 }
 
-.cardItem__heroImage {
+.cardItem__heroImage--grid {
   position: relative;
   top: -3rem;
   left: 0;
@@ -64,10 +65,14 @@ body {
   height: 16rem;
 }
 
+.cardItem__heroImage--image{
+  width: 100%;
+}
+
 .cardItem__text {
   position: relative;
   min-height: 3rem;
-  top: -1.5rem;
+  top: -1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +124,7 @@ body {
   .cardItem{
     max-width: 15rem;
   }
-  .cardItem__heroImage {
+  .cardItem__heroImage--grid {
     width: 9.5rem;
     height: 14rem;
   }
