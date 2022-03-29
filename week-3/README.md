@@ -24,3 +24,10 @@ Some key features that I've add:
 -   I have simulated skeleton loading. When client ask data from server, users will see gray background until operation is successful.
 -   I also used Google's firebase hosting service for lazy fingers. :smile: You can reach [the website here](https://bootcampweektwo.web.app)
 
+## Snapshots
+
+![desktop](./desktop.png)
+
+![tablet](./tablet.png)
+
+![mobile](mobile.png)
