@@ -1,6 +1,6 @@
-# Protein React Bootcamp Week-2 Homework
+# Protein React Bootcamp Week-3 Homework
 
-This repo represents my solution for week-2 homework.
+This repo represents my solution for week-3 homework.
 
 In order to make repo works, first step you have to is to create a ```.env.local``` file and add your keys to it. (I hide my public/private keys for protection issues.)
 
