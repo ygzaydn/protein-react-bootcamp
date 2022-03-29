@@ -17,16 +17,11 @@ function App() {
 
   useEffect(() => {
     // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
-
     window.addEventListener('hashchange', () => pageChecker());
-    return () => window.removeEventListener('hashchange', () => pageChecker());
-  }, []);
-
-  useEffect(() => {
-    // useEffect hook to assign hash, and query if necessary
     window.location.hash = page;
     getData();
     generatePaginationArray(page);
+    return () => window.removeEventListener('hashchange', () => pageChecker());
   }, [page, limit]);
 
   const pageChecker = () => {
@@ -160,7 +155,7 @@ function App() {
             </div>
           ))}
         </section>
-        <section className='pagination'>{paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
+        <section className='pagination'>{heroes && paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
       </section>
     </body>
   );
