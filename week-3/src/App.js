@@ -11,9 +11,13 @@ function App() {
   const [limit, setLimit] = useState(0); // tracks max number of page
   const [heroes, setHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [paginationArray, setPaginationArray] = useState([]);
+
+  const longSkip = 4;
 
   useEffect(() => {
     // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
+
     window.addEventListener('hashchange', () => pageChecker());
     return () => window.removeEventListener('hashchange', () => pageChecker());
   }, []);
@@ -22,7 +26,8 @@ function App() {
     // useEffect hook to assign hash, and query if necessary
     window.location.hash = page;
     getData();
-  }, [page]);
+    generatePaginationArray(page);
+  }, [page, limit]);
 
   const pageChecker = () => {
     // pageChecker method is used to dynamically check the value of state 'page'.
@@ -61,6 +66,78 @@ function App() {
     }
   };
 
+  const generatePaginationArray = (page) => {
+    const pageArray = [];
+    if (page <= longSkip) {
+      for (let i = 1; i < longSkip + 1; i++) {
+        pageArray.push(i);
+      }
+      if (!pageArray.includes(page + 1)) {
+        pageArray.push(page + 1);
+      }
+      pageArray.push('DOTS');
+      pageArray.push(limit);
+      pageArray.push('RightArrow');
+    } else if (longSkip < page && page <= limit - longSkip) {
+      pageArray.push('LeftArrow');
+      pageArray.push(1);
+      pageArray.push('DOTS');
+      for (let i = page - 1; i <= page + 1; i++) {
+        pageArray.push(i);
+      }
+      pageArray.push('DOTS');
+      pageArray.push(limit);
+      pageArray.push('RightArrow');
+    } else {
+      pageArray.push('LeftArrow');
+      pageArray.push(1);
+      pageArray.push('DOTS');
+      if (page === limit - 3) {
+        pageArray.push(limit - 4);
+      }
+      for (let i = limit - 3; i <= limit; i++) {
+        pageArray.push(i);
+      }
+    }
+    setPaginationArray([...pageArray]);
+  };
+
+  const generatePaginationJSX = (paginationArrayElement, ind) => {
+    switch (paginationArrayElement) {
+      case 'LeftArrow':
+        return (
+          <span key={'larr'} className='pagination__arrow' onClick={() => setPage(page - longSkip)}>
+            &larr;
+          </span>
+        );
+
+      case 'RightArrow':
+        return (
+          <span key={'rarr'} className='pagination__arrow' onClick={() => setPage(page + 4)}>
+            &rarr;
+          </span>
+        );
+
+      case 'DOTS':
+        return (
+          <span key={paginationArrayElement + ind} className='pagination__dots'>
+            ...
+          </span>
+        );
+
+      default:
+        return (
+          <span
+            key={paginationArrayElement}
+            className={paginationArrayElement === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
+            onClick={() => setPage(paginationArrayElement)}
+          >
+            {paginationArrayElement}
+          </span>
+        );
+    }
+  };
+
   return (
     <body>
       <section className='header'>
@@ -83,9 +160,17 @@ function App() {
             </div>
           ))}
         </section>
-        {heroes && (
-          <section className='pagination'>
-            {0 < page && page < 5 && (
+        <section className='pagination'>{paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
+      </section>
+    </body>
+  );
+}
+
+export default App;
+
+/*
+
+  {0 < page && page < 5 && (
               <>
                 {Array.from(Array(4).keys()).map((el) => (
                   <span
@@ -172,11 +257,5 @@ function App() {
                 })}
               </>
             )}
-          </section>
-        )}
-      </section>
-    </body>
-  );
-}
 
-export default App;
+*/
