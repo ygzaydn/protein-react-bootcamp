@@ -26,8 +26,14 @@ Some key features that I've add:
 
 ## Snapshots
 
+-   Desktop
+
 ![desktop](./desktop.png)
 
+-   Tablet
+
 ![tablet](./tablet.png)
+
+-   Mobile
 
 ![mobile](mobile.png)
