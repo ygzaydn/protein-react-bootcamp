@@ -69,110 +69,111 @@ function App() {
       </section>
       <section className='content'>
         <section className='cards'>
-          {heroes &&
-            heroes.map((el) => (
-              <div className='cardItem' key={el.id}>
-                <div className='cardItem__heroImage--grid'>
-                  <img
-                    src={!loading ? el.thumbnail.path + '/portrait_xlarge.' + el.thumbnail.extension : Gray}
-                    alt={el.name + '-img'}
-                    className={'cardItem__heroImage--image'}
-                  />
-                </div>
-
-                <p className={'cardItem__text'}>{!loading ? el.name : 'Loading...'}</p>
+          {heroes?.map((el) => (
+            <div className='cardItem' key={el.id}>
+              <div className='cardItem__heroImage--grid'>
+                <img
+                  src={!loading ? el.thumbnail.path + '/portrait_xlarge.' + el.thumbnail.extension : Gray}
+                  alt={el.name + '-img'}
+                  className={'cardItem__heroImage--image'}
+                />
               </div>
-            ))}
+
+              <p className={'cardItem__text'}>{!loading ? el.name : 'Loading...'}</p>
+            </div>
+          ))}
         </section>
-        <section className='pagination'>
-          {0 < page && page < 5 && (
-            <>
-              {Array.from(Array(4).keys()).map((el) => (
-                <span
-                  key={el + 1}
-                  className={el + 1 === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
-                  onClick={() => setPage(el + 1)}
-                >
-                  {el + 1}
+        {heroes && (
+          <section className='pagination'>
+            {0 < page && page < 5 && (
+              <>
+                {Array.from(Array(4).keys()).map((el) => (
+                  <span
+                    key={el + 1}
+                    className={el + 1 === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
+                    onClick={() => setPage(el + 1)}
+                  >
+                    {el + 1}
+                  </span>
+                ))}
+                {page === 4 && (
+                  <span key={5} className={'pagination__number'} onClick={() => setPage(5)}>
+                    5
+                  </span>
+                )}
+                <span className='pagination__dots'>...</span>
+                {limit > 0 && (
+                  <span className='pagination__number' onClick={() => setPage(limit)}>
+                    {limit}
+                  </span>
+                )}
+
+                <span className='pagination__arrow' onClick={() => setPage(page + 4)}>
+                  &rarr;
                 </span>
-              ))}
-              {page === 4 && (
-                <span key={5} className={'pagination__number'} onClick={() => setPage(5)}>
-                  5
+              </>
+            )}
+
+            {page > 4 && page < limit - 3 && (
+              <>
+                <span className='pagination__arrow' onClick={() => setPage(page - 4)}>
+                  &larr;
                 </span>
-              )}
-              <span className='pagination__dots'>...</span>
-              {limit > 0 && (
-                <span className='pagination__number' onClick={() => setPage(limit)}>
+                <span key={1} className={'pagination__number'} onClick={() => setPage(1)}>
+                  1
+                </span>
+                <span className='pagination__dots'>...</span>
+                <span key={page - 1} className={'pagination__number'} onClick={() => setPage(page - 1)}>
+                  {page - 1}
+                </span>
+                <span key={page} className={'pagination__number pagination__number-active'}>
+                  {page}
+                </span>
+                <span key={page + 1} className={'pagination__number'} onClick={() => setPage(page + 1)}>
+                  {page + 1}
+                </span>
+                <span className='pagination__dots'>...</span>
+                <span key={limit} className={'pagination__number'} onClick={() => setPage(limit)}>
                   {limit}
                 </span>
-              )}
-
-              <span className='pagination__arrow' onClick={() => setPage(page + 4)}>
-                &rarr;
-              </span>
-            </>
-          )}
-
-          {page > 4 && page < limit - 3 && (
-            <>
-              <span className='pagination__arrow' onClick={() => setPage(page - 4)}>
-                &larr;
-              </span>
-              <span key={1} className={'pagination__number'} onClick={() => setPage(1)}>
-                1
-              </span>
-              <span className='pagination__dots'>...</span>
-              <span key={page - 1} className={'pagination__number'} onClick={() => setPage(page - 1)}>
-                {page - 1}
-              </span>
-              <span key={page} className={'pagination__number pagination__number-active'}>
-                {page}
-              </span>
-              <span key={page + 1} className={'pagination__number'} onClick={() => setPage(page + 1)}>
-                {page + 1}
-              </span>
-              <span className='pagination__dots'>...</span>
-              <span key={limit} className={'pagination__number'} onClick={() => setPage(limit)}>
-                {limit}
-              </span>
-              <span className='pagination__arrow' onClick={() => setPage(page + 4)}>
-                &rarr;
-              </span>
-            </>
-          )}
-
-          {page > limit - 4 && limit > 1 && (
-            <>
-              <span className='pagination__arrow' onClick={() => setPage(page - 4)}>
-                &larr;
-              </span>
-              <span key={1} className={'pagination__number'} onClick={() => setPage(1)}>
-                1
-              </span>
-              <span className='pagination__dots'>...</span>
-              {page === limit - 3 && (
-                <span key={limit - 4} className='pagination__number' onClick={() => setPage(limit - 4)}>
-                  {limit - 4}
+                <span className='pagination__arrow' onClick={() => setPage(page + 4)}>
+                  &rarr;
                 </span>
-              )}
-              {Array.from(Array(6).keys()).map((el) => {
-                el += limit - 4;
-                if (page > el || el < limit) {
-                  return (
-                    <span
-                      key={el + 1}
-                      className={el + 1 === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
-                      onClick={() => setPage(el + 1)}
-                    >
-                      {el + 1}
-                    </span>
-                  );
-                }
-              })}
-            </>
-          )}
-        </section>
+              </>
+            )}
+
+            {page > limit - 4 && limit > 1 && (
+              <>
+                <span className='pagination__arrow' onClick={() => setPage(page - 4)}>
+                  &larr;
+                </span>
+                <span key={1} className={'pagination__number'} onClick={() => setPage(1)}>
+                  1
+                </span>
+                <span className='pagination__dots'>...</span>
+                {page === limit - 3 && (
+                  <span key={limit - 4} className='pagination__number' onClick={() => setPage(limit - 4)}>
+                    {limit - 4}
+                  </span>
+                )}
+                {Array.from(Array(6).keys()).map((el) => {
+                  el += limit - 4;
+                  if (page > el || el < limit) {
+                    return (
+                      <span
+                        key={el + 1}
+                        className={el + 1 === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
+                        onClick={() => setPage(el + 1)}
+                      >
+                        {el + 1}
+                      </span>
+                    );
+                  }
+                })}
+              </>
+            )}
+          </section>
+        )}
       </section>
     </body>
   );
