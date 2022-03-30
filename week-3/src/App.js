@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import BackgroundImage from './assets/background2.png';
 import MarvelText from './assets/marvelText.png';
-import Gray from './assets/gray.png';
 
 function App() {
   const [page, setPage] = useState(1); // tracks current page
@@ -139,11 +138,11 @@ function App() {
         <section className='cards'>
           {information?.heroes?.map((el) => (
             <div className='cardItem' key={el.id}>
-              <div className='cardItem__heroImage--grid'>
+              <div className={loading ? 'cardItem__heroImage--gridloading cardItem__heroImage--grid' : 'cardItem__heroImage--grid'}>
                 <img
-                  src={!loading ? el.thumbnail.path + '/portrait_xlarge.' + el.thumbnail.extension : Gray}
+                  src={!loading && el.thumbnail.path + '/portrait_xlarge.' + el.thumbnail.extension}
                   alt={el.name + '-img'}
-                  className={'cardItem__heroImage--image'}
+                  className={loading ? 'cardItem__heroImage--image cardItem__heroImage--loading' : 'cardItem--heroImage--image'}
                 />
               </div>
 

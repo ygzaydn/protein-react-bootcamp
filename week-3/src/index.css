@@ -58,8 +58,18 @@ body {
   overflow:hidden;
 }
 
-.cardItem__heroImage--image{
+.cardItem__heroImage--image {
   height: 100%;
+}
+
+.cardItem__heroImage--loading {
+  visibility: hidden;
+}
+
+.cardItem__heroImage--gridloading {
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 60rem;
+  animation: shine-lines 1.6s infinite linear;
 }
 
 .cardItem__text {
@@ -132,5 +142,15 @@ body {
   }
   .pagination > span, .pagination__number-active {
     padding: 0.5vw .5rem;
+  }
+}
+
+
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 140px;
   }
 }
