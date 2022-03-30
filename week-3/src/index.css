@@ -130,11 +130,7 @@ body {
     justify-content: center;
     align-items: center;
   }
-  .pagination > span {
-    padding: 0.5vw .5rem;
-  }
-
-  .pagination__number-active {
+  .pagination > span, .pagination__number-active {
     padding: 0.5vw .5rem;
   }
 }
