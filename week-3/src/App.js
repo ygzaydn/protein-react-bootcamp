@@ -8,8 +8,7 @@ import Gray from './assets/gray.png';
 
 function App() {
   const [page, setPage] = useState(1); // tracks current page
-  const [limit, setLimit] = useState(0); // tracks max number of page
-  const [heroes, setHeroes] = useState([]);
+  const [information, setInformation] = useState({});
   const [loading, setLoading] = useState(false);
   const [paginationArray, setPaginationArray] = useState([]);
 
@@ -22,7 +21,7 @@ function App() {
     getData();
     generatePaginationArray(page);
     return () => window.removeEventListener('hashchange', () => pageChecker());
-  }, [page, limit]);
+  }, [page, information.limit]);
 
   const pageChecker = () => {
     // pageChecker method is used to dynamically check the value of state 'page'.
@@ -36,7 +35,6 @@ function App() {
     // main function for query action. Helps us to store data on sessionStorage and avoids unnecessary fetch actions.
     const storageItems = JSON.parse(sessionStorage.getItem('info')) || {};
     const limit = JSON.parse(sessionStorage.getItem('limit')) || 0;
-
     setLoading(true);
 
     if (!storageItems[page]) {
@@ -50,13 +48,11 @@ function App() {
           storageItems[page] = [...resp.data.data.results];
           sessionStorage.setItem('info', JSON.stringify(storageItems));
           sessionStorage.setItem('limit', JSON.stringify(resp.data.data.total / 20));
-          setLimit(resp.data.data.total / 20);
-          setHeroes(resp.data.data.results);
+          setInformation({ heroes: resp.data.data.results, limit: resp.data.data.total / 20 });
           setLoading(false);
         });
     } else {
-      setHeroes(storageItems[page]);
-      setLimit(limit);
+      setInformation({ heroes: storageItems[page], limit });
       setLoading(false);
     }
   };
@@ -71,9 +67,9 @@ function App() {
         pageArray.push(page + 1);
       }
       pageArray.push('DOTS');
-      pageArray.push(limit);
+      pageArray.push(information.limit);
       pageArray.push('RightArrow');
-    } else if (longSkip < page && page <= limit - longSkip) {
+    } else if (longSkip < page && page <= information.limit - longSkip) {
       pageArray.push('LeftArrow');
       pageArray.push(1);
       pageArray.push('DOTS');
@@ -81,16 +77,16 @@ function App() {
         pageArray.push(i);
       }
       pageArray.push('DOTS');
-      pageArray.push(limit);
+      pageArray.push(information.limit);
       pageArray.push('RightArrow');
     } else {
       pageArray.push('LeftArrow');
       pageArray.push(1);
       pageArray.push('DOTS');
-      if (page === limit - 3) {
-        pageArray.push(limit - 4);
+      if (page === information.limit - 3) {
+        pageArray.push(information.limit - 4);
       }
-      for (let i = limit - 3; i <= limit; i++) {
+      for (let i = information.limit - 3; i <= information.limit; i++) {
         pageArray.push(i);
       }
     }
@@ -123,7 +119,7 @@ function App() {
       default:
         return (
           <span
-            key={paginationArrayElement}
+            key={paginationArrayElement + ind}
             className={paginationArrayElement === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
             onClick={() => setPage(paginationArrayElement)}
           >
@@ -141,7 +137,7 @@ function App() {
       </section>
       <section className='content'>
         <section className='cards'>
-          {heroes?.map((el) => (
+          {information?.heroes?.map((el) => (
             <div className='cardItem' key={el.id}>
               <div className='cardItem__heroImage--grid'>
                 <img
@@ -155,7 +151,7 @@ function App() {
             </div>
           ))}
         </section>
-        <section className='pagination'>{heroes && paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
+        <section className='pagination'>{information?.heroes && paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
       </section>
     </body>
   );
