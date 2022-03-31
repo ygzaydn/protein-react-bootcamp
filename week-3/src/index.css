@@ -2,6 +2,7 @@ body {
   background-color: #222;
   font-family: "Roboto", sans-serif;
   margin: 0;
+  font-size: 62.5%;
 }
 
 .header {
@@ -28,12 +29,13 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   min-height: 80vh;
+  padding-top: 5rem;
 }
 
 .cards {
   display: grid;
   grid-template-columns: min-content  min-content  min-content  min-content;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 5rem;
   min-height: 40rem;
 }
@@ -53,13 +55,13 @@ body {
   top: -3rem;
   padding-top: 0.5rem;
   border-top: 1px solid white;
-  width: 9rem;
-  height: 13.5rem;
+  width: 11.25rem;
+  height: 16.875rem;
   overflow:hidden;
 }
 
 .cardItem__heroImage--image {
-  height: 100%;
+  width: 100%;
 }
 
 .cardItem__heroImage--loading {
@@ -79,6 +81,7 @@ body {
   display: flex;
   align-items: center;
   margin: auto;
+  font-size: 1.25rem;
 }
 
 .pagination {
@@ -109,6 +112,7 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
+ 
   .cards {
     grid-template-columns: min-content min-content min-content;
     justify-content: center;
@@ -124,6 +128,9 @@ body {
     margin-bottom: 5rem;
     justify-content: center;
   }  
+  .cardItem {
+    margin: 3rem 2rem;
+  }
 }
 
 @media only screen and (max-width: 800px) {
