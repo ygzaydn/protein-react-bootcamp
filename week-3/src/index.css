@@ -1,13 +1,16 @@
+html{
+  font-size: 62.5%;
+}
+
 body {
   background-color: #222;
   font-family: "Roboto", sans-serif;
   margin: 0;
-  font-size: 62.5%;
 }
 
 .header {
   position: relative;
-  margin-bottom: 10rem;
+  margin-bottom: 7.5rem;
 }
 
 .header__background {
@@ -19,23 +22,23 @@ body {
 .header__marvelText {
   position: absolute;
   z-index: 2;
-  bottom: 2.5%;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  max-height: 12rem;
+  height: 15rem;
 }
 
 .content {
   max-width: 1440px;
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 50rem;
   padding-top: 5rem;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: min-content  min-content  min-content  min-content;
-  justify-content: space-around;
+  grid-template-columns: repeat(4,min-content);
+  justify-content: space-between;
   margin-bottom: 5rem;
   min-height: 40rem;
 }
@@ -55,8 +58,8 @@ body {
   top: -3rem;
   padding-top: 0.5rem;
   border-top: 1px solid white;
-  width: 11.25rem;
-  height: 16.875rem;
+  width: 18rem;
+  height: 27rem;
   overflow:hidden;
 }
 
@@ -81,29 +84,31 @@ body {
   display: flex;
   align-items: center;
   margin: auto;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .pagination {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10vh;
+  align-items: center;
+  margin-bottom: 5rem;
   padding-right: 3rem;
+  
 }
 
 .pagination > span {
-  padding: 0.5vw 1vw;
+  padding: 1rem 1.5rem ;
   color: #7e7e7e;
-  font-size: 1.25rem;
   font-weight: 500;
   cursor: pointer;
+  font-size: 2rem;
 }
 
 .pagination__number-active {
   color: #222 !important;
   background-color: #7e7e7e;
   border-radius: 20%;
-  padding: 0.5vw 1vw !important;
+  padding: 1rem 1.5rem !important;
   cursor: default !important;
 }
 
@@ -112,43 +117,33 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
- 
+  html{
+    font-size: 57.5%;
+  }
   .cards {
-    grid-template-columns: min-content min-content min-content;
+    grid-template-columns: repeat(3,min-content);
     justify-content: center;
-  }
-  .header {
-    margin-bottom: 8rem;
-  }
-  .header__marvelText {
-    height: 6rem;
   }
   .pagination {
     padding: 0 2rem;
     margin-bottom: 5rem;
     justify-content: center;
   }  
-  .cardItem {
-    margin: 3rem 2rem;
-  }
 }
 
 @media only screen and (max-width: 800px) {
+  html{
+    font-size: 50%;
+  }
   .cards {
     grid-template-columns: min-content;    
   }
-  .header {
-    margin-bottom: 5rem;
-  }
-  .header__marvelText {
-    height: 5rem;
-  }
+
   .pagination {
     justify-content: center;
-    align-items: center;
   }
   .pagination > span, .pagination__number-active {
-    padding: 0.5vw .5rem;
+    padding: .5rem;
   }
 }
 
