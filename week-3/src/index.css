@@ -1,13 +1,28 @@
+/* Resets & fixes */
+
 html{
-  font-size: 62.5%;
+  font-size: 62.5%; /* 1rem is 10px for now 10/16 = 0.625*/
 }
 
 body {
+  background: #222;
   background-color: #222;
   font-family: "Roboto", sans-serif;
   margin: 0;
 }
 
+/* Animation for Skeleton Loading*/
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 140px;
+  }
+}
+
+
+/* Style of the page */
 .header {
   position: relative;
   margin-bottom: 7.5rem;
@@ -100,25 +115,26 @@ body {
   padding: 1rem 1.5rem ;
   color: #7e7e7e;
   font-weight: 500;
-  cursor: pointer;
   font-size: 2rem;
+}
+
+.pagination__number, .pagination__arrow {
+  cursor: pointer;
 }
 
 .pagination__number-active {
   color: #222 !important;
+  background: #7e7e7e;
   background-color: #7e7e7e;
   border-radius: 20%;
   padding: 1rem 1.5rem !important;
-  cursor: default !important;
+  cursor: default;
 }
 
-.pagination__dots {
-  cursor: default !important;
-}
 
 @media only screen and (max-width: 1200px) {
   html{
-    font-size: 57.5%;
+    font-size: 57.5%; /* Controls the overall fontSize and helps me on responsiveness */
   }
   .cards {
     grid-template-columns: repeat(3,min-content);
@@ -133,29 +149,15 @@ body {
 
 @media only screen and (max-width: 800px) {
   html{
-    font-size: 50%;
+    font-size: 50%; /* Controls the overall fontSize and helps me on responsiveness */
   }
   .cards {
     grid-template-columns: min-content;    
-  }
-
-  .pagination {
-    justify-content: center;
   }
   .pagination > span, .pagination__number-active {
     padding: .5rem;
   }
   .header__marvelText{
     height: 10rem;
-  }
-}
-
-
-@keyframes shine-lines {
-  0% {
-    background-position: -100px;
-  }
-  40%, 100% {
-    background-position: 140px;
   }
 }

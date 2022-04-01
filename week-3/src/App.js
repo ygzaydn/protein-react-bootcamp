@@ -17,12 +17,12 @@ function App() {
   const longSkip = 4;
 
   useEffect(() => {
+    // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
     window.addEventListener('hashchange', hashHandler);
     return () => window.addEventListener('hashchange', hashHandler);
   }, []);
 
   useEffect(() => {
-    // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
     getData();
     generatePaginationArray(page);
   }, [page, information.limit]);
@@ -57,6 +57,7 @@ function App() {
   };
 
   const generatePaginationArray = (page) => {
+    // For pagination, I've created paginationArray, which will be rendered on the page and changes whenever a page change
     const pageArray = [];
     if (page <= longSkip) {
       for (let i = 1; i < longSkip + 1; i++) {
@@ -93,6 +94,7 @@ function App() {
   };
 
   const hashHandler = () => {
+    // Defines the behaviour when hash changes
     setPage(parseInt(window.location.hash.substring(1)));
     contentGrid.current.scrollIntoView({
       behavior: 'smooth',
@@ -137,6 +139,7 @@ function App() {
   };
 
   const changePage = (myPage = page) => {
+    // Hash change triggers 'hashchange' eventlistener that I've created at the top of the component, whenever hash changes page state will also change.
     window.location.hash = myPage;
   };
 
@@ -157,7 +160,6 @@ function App() {
                   className={loading ? 'cardItem__heroImage--image cardItem__heroImage--loading' : 'cardItem__heroImage--image'}
                 />
               </div>
-
               <p className={'cardItem__text'}>{!loading ? el.name : 'Loading...'}</p>
             </div>
           ))}
