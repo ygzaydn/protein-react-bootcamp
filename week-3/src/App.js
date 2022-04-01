@@ -2,14 +2,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 
-import BackgroundImage from './assets/background2.png';
+import BackgroundImage from './assets/background2-min.png';
 import MarvelText from './assets/marvelText.png';
 import RightArrow from './assets/rightArrow.png';
 import LeftArrow from './assets/leftArrow.png';
 
 function App() {
   const [page, setPage] = useState(1); // tracks current page
-  const [information, setInformation] = useState({});
+  const [information, setInformation] = useState({ heroes: Array(20).fill({}) });
   const [loading, setLoading] = useState(false);
   const [paginationArray, setPaginationArray] = useState([]);
   const contentGrid = useRef(null);
@@ -147,18 +147,18 @@ function App() {
   };
 
   return (
-    <body>
+    <div>
       <section className='header'>
         <img src={BackgroundImage} alt='Background' className='header__background' />
         <img src={MarvelText} alt='Marvel Text' className='header__marvelText' />
       </section>
       <section className='content' ref={contentGrid}>
         <section className='cards'>
-          {information?.heroes?.map((el) => (
-            <div className='cardItem' key={el.id}>
+          {information?.heroes?.map((el, ind) => (
+            <div className='cardItem' key={el?.id ? el.id : ind}>
               <div className={loading ? 'cardItem__heroImage--gridloading cardItem__heroImage--grid' : 'cardItem__heroImage--grid'}>
                 <img
-                  src={!loading ? el.thumbnail.path + '/portrait_xlarge.' + el.thumbnail.extension : null}
+                  src={!loading ? el.thumbnail?.path + '/portrait_xlarge.' + el.thumbnail?.extension : null}
                   alt={el.name + '-img'}
                   className={loading ? 'cardItem__heroImage--image cardItem__heroImage--loading' : 'cardItem__heroImage--image'}
                 />
@@ -169,7 +169,7 @@ function App() {
         </section>
         <section className='pagination'>{information?.heroes && paginationArray?.map((el, ind) => generatePaginationJSX(el, ind))}</section>
       </section>
-    </body>
+    </div>
   );
 }
 

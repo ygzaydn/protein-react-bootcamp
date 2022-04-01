@@ -1,12 +1,19 @@
-/* Resets & fixes */
+/* Resets & fixes & variables */
+
+:root{
+  --background-primary: #222;
+  --background-secondary: #7e7e7e;
+  --gradient-first:#ddd;
+  --gradient-second:#e8e8e8;
+}
 
 html{
   font-size: 62.5%; /* 1rem is 10px for now 10/16 = 0.625*/
 }
 
 body {
-  background: #222;
-  background-color: #222;
+  background: var(--background-primary);
+  background-color: var(--background-primary);
   font-family: "Roboto", sans-serif;
   margin: 0;
 }
@@ -87,7 +94,7 @@ body {
 }
 
 .cardItem__heroImage--gridloading {
-  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-image: linear-gradient(90deg, var(--gradient-first) 0px, var(--gradient-second)  40px, var(--gradient-first)  80px);
   background-size: 60rem;
   animation: shine-lines 1.6s infinite linear;
 }
@@ -113,7 +120,7 @@ body {
 
 .pagination > span {
   padding: 1rem 1.5rem ;
-  color: #7e7e7e;
+  color: var(--background-secondary);
   font-weight: 500;
   font-size: 2rem;
 }
@@ -123,11 +130,10 @@ body {
 }
 
 .pagination__number-active {
-  color: #222 !important;
-  background: #7e7e7e;
-  background-color: #7e7e7e;
+  color: var(--background-primary) !important;
+  background: var(--background-secondary);
+  background-color: var(--background-secondary);
   border-radius: 20%;
-  padding: 1rem 1.5rem !important;
   cursor: default;
 }
 
