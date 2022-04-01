@@ -28,12 +28,12 @@ Some key features that I've add:
 
 -   Desktop
 
-![desktop](./desktop.png)
+![desktop](./desktop.gif)
 
 -   Tablet
 
-![tablet](./tablet.png)
+![tablet](./tablet.gif)
 
 -   Mobile
 
-![mobile](mobile.png)
+![mobile](mobile.gif)

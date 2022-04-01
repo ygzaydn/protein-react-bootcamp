@@ -145,6 +145,9 @@ body {
   .pagination > span, .pagination__number-active {
     padding: .5rem;
   }
+  .header__marvelText{
+    height: 10rem;
+  }
 }
 
 
