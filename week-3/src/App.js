@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 
 import BackgroundImage from './assets/background2.png';
@@ -102,41 +102,44 @@ function App() {
     });
   };
 
-  const generatePaginationJSX = (paginationArrayElement, ind) => {
-    switch (paginationArrayElement) {
-      case 'LeftArrow':
-        return (
-          <span key={'larr'} className='pagination__arrow' onClick={() => changePage(page - longSkip)}>
-            <img src={LeftArrow} alt='leftArrow' />
-          </span>
-        );
+  const generatePaginationJSX = useCallback(
+    (paginationArrayElement, ind) => {
+      switch (paginationArrayElement) {
+        case 'LeftArrow':
+          return (
+            <span key={'larr'} className='pagination__arrow' onClick={() => changePage(page - longSkip)}>
+              <img src={LeftArrow} alt='leftArrow' />
+            </span>
+          );
 
-      case 'RightArrow':
-        return (
-          <span key={'rarr'} className='pagination__arrow' onClick={() => changePage(page + 4)}>
-            <img src={RightArrow} alt='rightArrow' />
-          </span>
-        );
+        case 'RightArrow':
+          return (
+            <span key={'rarr'} className='pagination__arrow' onClick={() => changePage(page + 4)}>
+              <img src={RightArrow} alt='rightArrow' />
+            </span>
+          );
 
-      case 'DOTS':
-        return (
-          <span key={paginationArrayElement + ind} className='pagination__dots'>
-            ...
-          </span>
-        );
+        case 'DOTS':
+          return (
+            <span key={paginationArrayElement + ind} className='pagination__dots'>
+              ...
+            </span>
+          );
 
-      default:
-        return (
-          <span
-            key={paginationArrayElement + ind}
-            className={paginationArrayElement === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
-            onClick={paginationArrayElement !== page ? () => changePage(paginationArrayElement) : null}
-          >
-            {paginationArrayElement}
-          </span>
-        );
-    }
-  };
+        default:
+          return (
+            <span
+              key={paginationArrayElement + ind}
+              className={paginationArrayElement === page ? 'pagination__number pagination__number-active' : 'pagination__number'}
+              onClick={paginationArrayElement !== page ? () => changePage(paginationArrayElement) : null}
+            >
+              {paginationArrayElement}
+            </span>
+          );
+      }
+    },
+    [page]
+  );
 
   const changePage = (myPage = page) => {
     // Hash change triggers 'hashchange' eventlistener that I've created at the top of the component, whenever hash changes page state will also change.
