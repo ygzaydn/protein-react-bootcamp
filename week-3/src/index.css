@@ -73,6 +73,16 @@ body {
   padding: 0 1rem;
   display:flex;
   flex-direction: column;
+  transition: all .4s;
+}
+
+.cardItem:hover {
+  background-color:white;
+  color: var(--background-primary);
+}
+
+.cardItem:hover .cardItem__text {
+  font-size: 1.75rem;
 }
 
 .cardItem__heroImage--grid {
@@ -107,6 +117,7 @@ body {
   align-items: center;
   margin: auto;
   font-size: 1.5rem;
+  transition: all .4s;
 }
 
 .pagination {
@@ -123,18 +134,33 @@ body {
   color: var(--background-secondary);
   font-weight: 500;
   font-size: 2rem;
+  margin: 0 .2rem;
 }
 
 .pagination__number, .pagination__arrow {
   cursor: pointer;
+  transition: all .4s;
+  border-radius: 20%;
 }
 
-.pagination__number-active {
-  color: var(--background-primary) !important;
+pagination__arrow img{
+  transition: all .4s;
+} 
+
+.pagination__number:hover, .pagination__arrow:hover {
+  color: white;
+}
+
+.pagination__number-active:hover {
   background: var(--background-secondary);
-  background-color: var(--background-secondary);
-  border-radius: 20%;
-  cursor: default;
+}
+
+.pagination__number-active:hover {
+  background: var(--background-secondary);
+}
+
+.pagination__arrow:hover img {
+  filter: brightness(0) invert(100%);
 }
 
 
