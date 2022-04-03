@@ -1,0 +1,17 @@
+:root{
+  --background-primary: #2D2D2D;
+  --red: #FF0000;
+  --background-false: #FA0000;
+  --background-correct: #00BF63;
+}
+
+body {
+  margin: 0;
+  font-family: 'Handlee', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Handlee', cursive;
+}
