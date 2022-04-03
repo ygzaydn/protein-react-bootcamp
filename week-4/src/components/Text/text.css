@@ -1,0 +1,6 @@
+.text__content {
+    color: var(--white);
+    font-size: 6.5rem;
+    text-align: center;
+    padding: 2rem;
+}

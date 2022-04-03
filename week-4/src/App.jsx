@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './router/Router';
 
-function App() {
+const App = () => {
     return (
-        <div className="App">
-            asdasdasd
-            <span>asd</span>
-            <div>sadasd</div>
+        <div>
+            <BrowserRouter>
+                <Router />
+            </BrowserRouter>
         </div>
     );
-}
+};
 
 export default App;
