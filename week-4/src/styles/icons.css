@@ -9,27 +9,12 @@
 }
 
 .answerCircle {
-    position: absolute;
     max-width: 700px;
     transition: var(--transition);
     cursor: pointer;
 }
 
-.answerCircle1 {
-    top:10%;
-    left:10%;
-}
-
-.answerCircle2 {
-    top:40%;
-    right:20%;
-}
-
-.answerCircle3 {
-    top:70%;
-    left:20%;
-}
-
 .answerCircle:hover {
     filter: var(--filter)
 }
+

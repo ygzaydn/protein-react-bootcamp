@@ -8,18 +8,20 @@ import './home.css';
 const Home = () => {
     const { readLocalhost } = getContext();
 
-    console.log(readLocalhost());
-
-    const { total } = readLocalhost();
+    const {
+        tour,
+        question: { total, correct },
+        score,
+    } = readLocalhost();
     const navigate = useNavigate();
     return (
         <div className="homepage">
             <Title title="Mathematics Game" />
-            {total ? (
+            {tour > 0 ? (
                 <>
-                    <Text content="Total Point: 129" />
-                    <Text content="Total Questions: 40" />
-                    <Text content="Correct Answers: 32" />
+                    <Text content={`Total Point: ${score}`} />
+                    <Text content={`Total Questions: ${total}`} />
+                    <Text content={`Correct Answers: ${correct}`} />
                 </>
             ) : (
                 <>

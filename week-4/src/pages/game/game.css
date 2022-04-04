@@ -66,8 +66,6 @@
     animation-fill-mode: forwards;
 }
 
-
-
 @keyframes correctAnswer {
     0% {background-color: var(--background-primary);}
     70% {background-color: var(--background-correct);}

@@ -17,7 +17,7 @@ export const ScoreContextProvider = ({ children }) => {
     const [information, setInformation] = useState(initialState);
 
     useEffect(() => {
-        const storage = localStorage.getItem('scoretable');
+        const storage = JSON.parse(localStorage.getItem('scoretable'));
         if (!storage) {
             localStorage.setItem(
                 'scoretable',
@@ -27,15 +27,25 @@ export const ScoreContextProvider = ({ children }) => {
     }, []);
 
     const readLocalhost = () => {
-        const storage = localStorage.getItem('scoretable');
-        if (storage) {
-            return JSON.parse(storage);
-        }
+        const data = localStorage.getItem('scoretable');
+        if (data) {
+            return JSON.parse(data);
+        } else return initialState;
     };
 
     const writeLocalhost = (item) => {
         const data = JSON.parse(localStorage.getItem('scoretable'));
-        const dataToWrite = { ...data, item };
+
+        const dataToWrite = {
+            ...data,
+            score: data.score + item.score,
+            tour: data.tour + item.tour,
+            question: {
+                total: data.question.total + item.question.total,
+                correct: data.question.total + item.question.total,
+            },
+            summary: [...item.summary],
+        };
         localStorage.setItem('scoretable', JSON.stringify(dataToWrite));
     };
 

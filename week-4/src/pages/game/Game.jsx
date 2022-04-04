@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AnswerCircle, Stickman } from '../../icons';
-import { Text } from '../../components';
+import { Stickman } from '../../icons';
+import { AnswerButton, Text } from '../../components';
 import './game.css';
 import { getContext } from '../../context/scoreContext';
+import { useNavigate } from 'react-router';
 
 const Game = () => {
     const gridRef = useRef(null);
@@ -10,6 +11,10 @@ const Game = () => {
     const [question, setQuestion] = useState([]);
     const [answers, setAnswers] = useState([]);
     const [correct, setCorrect] = useState(false);
+    const [turn, setTurn] = useState(1);
+    const [disabled, setDisabled] = useState(false);
+
+    const navigate = useNavigate();
 
     const { generateQuestion, generateAnswers, setInformation, information } =
         getContext();
@@ -28,6 +33,13 @@ const Game = () => {
     }, []);
 
     useEffect(() => {
+        if (turn === 11) {
+            navigate('/result');
+        }
+        setQuestion(generateQuestion());
+    }, [turn]);
+
+    useEffect(() => {
         if (question[0] && question[1]) {
             setAnswers(generateAnswers(question));
         }
@@ -38,28 +50,66 @@ const Game = () => {
     };
 
     const answer = (answer) => {
+        setDisabled(true);
         const gridInfo = gridRef.current;
         const dialogInfo = dialogRef.current;
         dialogInfo.style.visibility = 'visible';
         if (answerChecker(answer)) {
             gridInfo.className = 'gamepage gamepage--correct';
             setCorrect(true);
+            setInformation({
+                ...information,
+                score: information.score + Math.ceil(Math.sqrt(answer)),
+                question: {
+                    total: information.question.total + 1,
+                    correct: information.question.correct + 1,
+                },
+                summary: [
+                    ...information.summary,
+                    {
+                        question: `${question[0]} x ${question[1]} = ${answer}`,
+                        answer: true,
+                    },
+                ],
+            });
         } else {
             gridInfo.className = 'gamepage gamepage--false';
             setCorrect(false);
+            setInformation({
+                ...information,
+                question: {
+                    total: information.question.total + 1,
+                    correct: information.question.correct,
+                },
+                summary: [
+                    ...information.summary,
+                    {
+                        question: `${question[0]} x ${question[1]} = ${answer}`,
+                        answer: false,
+                    },
+                ],
+            });
         }
 
         setTimeout(() => {
             dialogInfo.style.visibility = 'hidden';
             gridInfo.className = 'gamepage';
+            setTurn(turn + 1);
+            setDisabled(false);
         }, 3000);
     };
 
     return (
         <section ref={gridRef} className="gamepage">
             <div ref={dialogRef} className="gamepage__dialog">
-                {correct ? 'Correct' : 'Wrong'} answer, new question will appear
-                in 3s!
+                {turn !== 10 ? (
+                    <>
+                        {correct ? 'Correct ' : 'Wrong '} answer, new question
+                        will appear in 3seconds!
+                    </>
+                ) : (
+                    'Game completed, results will be shown in 3seconds!'
+                )}
             </div>
             <div className="gamepage__left">
                 <Stickman text={`${question[0]} x ${question[1]}`} />
@@ -75,13 +125,12 @@ const Game = () => {
                 </div>
                 <div className="gamepage__right--down">
                     {answers?.map((el, ind) => (
-                        <AnswerCircle
-                            key={el}
-                            number={el}
-                            height="30%"
-                            width="30%"
-                            pos={ind + 1}
-                            onClick={() => answer(el)}
+                        <AnswerButton
+                            key={ind + el + Math.random() * 5}
+                            info={el}
+                            disabled={disabled}
+                            ind={ind}
+                            clickFunc={() => answer(el)}
                         />
                     ))}
                 </div>
