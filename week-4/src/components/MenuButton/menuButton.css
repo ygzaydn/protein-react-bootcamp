@@ -4,18 +4,3 @@
     border: none;
     cursor: pointer;
 }
-
-.menuButton__text {
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    font-size: 6rem;
-    font-family: 'Handlee', cursive;
-    color: var(--white);
-    transition: var(--transition);
-}
-
-.menuButton:hover .menuCircle, .menuButton:hover .menuButton__text {
-    filter: var(--filter)
-}

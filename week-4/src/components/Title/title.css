@@ -1,5 +1,10 @@
 .title {
     padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: min-content;
 }
 
 .title__text {
@@ -7,4 +12,5 @@
     font-size: 8.5rem;
     text-align: center;
     padding: 2rem 0;
+    display: ruby;
 }

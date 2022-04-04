@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const UnderlineSVG = () => (
+const UnderlineSVG = ({ width }) => (
     <svg
-        width="640"
+        width={width || '640'}
         height="10"
         viewBox="0 0 640 10"
         fill="none"
@@ -14,5 +15,9 @@ const UnderlineSVG = () => (
         />
     </svg>
 );
+
+UnderlineSVG.propTypes = {
+    width: PropTypes.string,
+};
 
 export default UnderlineSVG;

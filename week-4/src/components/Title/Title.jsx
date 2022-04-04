@@ -6,7 +6,7 @@ import './title.css';
 const Title = ({ title }) => (
     <div className="title">
         <h2 className="title__text">{title}</h2>
-        <UnderlineSVG />
+        <UnderlineSVG width="100%" />
     </div>
 );
 

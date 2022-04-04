@@ -1,6 +1,11 @@
 .menuCircle{
     transition: var(--transition);
-    padding: 6rem 0;
+    margin: 6rem 0;
+    font-family: 'Handlee', cursive;
+}
+
+.menuCircle:hover {
+    filter: var(--filter)
 }
 
 .answerCircle {
