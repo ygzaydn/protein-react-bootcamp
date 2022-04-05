@@ -20,7 +20,7 @@ const Game = () => {
     return (
         <section className="resultpage">
             <div className="resultpage__leftgrid">
-                <Title title="Final" />
+                <Title title="Final" smallUnderline />
                 <Text
                     content={`Point: ${information.score}`}
                     padding="1rem 0"
@@ -36,7 +36,7 @@ const Game = () => {
                 <MenuButton text="Restart" clickFunc={() => restartPage()} />
             </div>
             <div className="resultpage__rightgrid">
-                <Title title="All Question" />
+                <Title title="All Question" smallUnderline />
                 {information.summary.map((el, ind) => (
                     <Text
                         content={el.question}

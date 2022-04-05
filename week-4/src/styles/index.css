@@ -79,4 +79,17 @@ code {
   font-family: 'Handlee', cursive;
 }
 
+@media screen and (max-width:1250px) {
+  html{
+    font-size:55%
+  }
+}
+
+
+@media screen and (max-width:1000px) {
+  html{
+    font-size:50%
+  }
+}
+
 

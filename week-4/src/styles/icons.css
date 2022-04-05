@@ -9,7 +9,7 @@
 }
 
 .answerCircle {
-    max-width: 700px;
+    max-width: 15vw;
     transition: var(--transition);
     cursor: pointer;
 }

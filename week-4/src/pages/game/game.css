@@ -1,7 +1,37 @@
 .gamepage {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     height: 100vh;
+}
+
+.gamepage__dialog {
+    position: absolute;
+    padding: 4rem;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    text-align: center;
+    z-index:50;
+    background:#000a;
+    color:white;
+    border-radius: 50px;
+    visibility: hidden;
+    width: 60%;
+}
+
+.gamepage__dialog--animation {
+    animation: dialogBox;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.gamepage__upper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5rem;
 }
 
 .gamepage--correct {
@@ -22,18 +52,14 @@
     justify-content: center;
     position: relative;
     padding: 4rem;
+    margin:2rem;
+    flex:1;
 }
 
-.gamepage__left--text{
-    position: absolute;
-    font-size: 12rem;
-    color:var(--white);
-    top: 35%;
-    left:10%
-}
-
-.gamepage__right--upper{
+.gamepage__lower{
     display: flex;
+    height: 80vh;
+    width: 100vw;
 }
 
 .gamepage__right--down{
@@ -44,27 +70,6 @@
     position: relative;
 }
 
-.gamepage__dialog {
-    position: absolute;
-    padding: 4rem;
-    top:20%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    font-size: 5rem;
-    text-align: center;
-    z-index:50;
-    background:#000a;
-    color:white;
-    border-radius: 50px;
-    visibility: hidden;
-    width: 60%;
-}
-
-.gamepage__dialog--animation {
-    animation: dialogBox;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-}
 
 @keyframes correctAnswer {
     0% {background-color: var(--background-primary);}

@@ -42,7 +42,7 @@ export const ScoreContextProvider = ({ children }) => {
             tour: data.tour + item.tour,
             question: {
                 total: data.question.total + item.question.total,
-                correct: data.question.total + item.question.total,
+                correct: data.question.correct + item.question.correct,
             },
             summary: [...item.summary],
         };

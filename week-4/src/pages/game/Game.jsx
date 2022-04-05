@@ -78,8 +78,8 @@ const Game = () => {
             setInformation({
                 ...information,
                 question: {
+                    ...information.question,
                     total: information.question.total + 1,
-                    correct: information.question.correct,
                 },
                 summary: [
                     ...information.summary,
@@ -106,33 +106,46 @@ const Game = () => {
                     <>
                         {correct ? 'Correct ' : 'Wrong '} answer, new question
                         will appear in 3seconds!
+                        {!correct && (
+                            <>
+                                <br />
+                                <br />
+                            </>
+                        )}
+                        {!correct &&
+                            `Correct answer is:  ${question[0] * question[1]}`}
                     </>
                 ) : (
                     'Game completed, results will be shown in 3seconds!'
                 )}
             </div>
-            <div className="gamepage__left">
-                <Stickman text={`${question[0]} x ${question[1]}`} />
+            <div className="gamepage__upper">
+                <Text content={`Score: ${information.score}`} size="4rem" />
+                <Text content={`Tour: ${information.tour}`} size="4rem" />
+                <Text
+                    content={`Questions: ${information.question.correct}/${information.question.total}`}
+                    size="4rem"
+                />
             </div>
-            <div className="gamepage__right">
-                <div className="gamepage__right--upper">
-                    <Text content={`Score: ${information.score}`} size="4rem" />
-                    <Text content={`Tour: ${information.tour}`} size="4rem" />
-                    <Text
-                        content={`Questions: ${information.question.correct}/${information.question.total}`}
-                        size="4rem"
-                    />
+            <div className="gamepage__lower">
+                <div className="gamepage__left">
+                    <Stickman text={`${question[0]} x ${question[1]}`} />
                 </div>
-                <div className="gamepage__right--down">
-                    {answers?.map((el, ind) => (
-                        <AnswerButton
-                            key={ind + el + Math.random() * 5}
-                            info={el}
-                            disabled={disabled}
-                            ind={ind}
-                            clickFunc={() => answer(el)}
-                        />
-                    ))}
+                <div className="gamepage__right">
+                    <div className="gamepage__right--down">
+                        {answers?.map((el, ind) => (
+                            <AnswerButton
+                                key={ind + el + Math.random() * 5}
+                                info={el}
+                                disabled={disabled}
+                                ind={ind}
+                                clickFunc={() => answer(el)}
+                                correct={
+                                    parseInt(el) === question[0] * question[1]
+                                }
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
