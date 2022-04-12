@@ -41,6 +41,7 @@ const FormComponent = () => {
                                 name="firstName"
                                 placeholder="İsmini gir"
                                 size="small"
+                                type="text"
                                 hasError={
                                     errors?.firstName && touched?.firstName
                                 }
@@ -52,6 +53,7 @@ const FormComponent = () => {
                                 name="lastName"
                                 placeholder="Soyismini gir"
                                 size="small"
+                                type="text"
                                 hasError={errors.lastName && touched.lastName}
                                 error={errors?.lastName}
                             />
@@ -62,6 +64,7 @@ const FormComponent = () => {
                             name="email"
                             placeholder="E-posta adresini gir"
                             size="normal"
+                            type="text"
                             required
                             hasError={errors?.email && touched?.email}
                             error={errors?.email}
@@ -73,6 +76,7 @@ const FormComponent = () => {
                             placeholder="Kullanıcı adını gir"
                             size="normal"
                             required
+                            type="text"
                             hasError={errors?.userName && touched?.userName}
                             error={errors?.userName}
                         />
@@ -82,6 +86,7 @@ const FormComponent = () => {
                             name="password"
                             placeholder="Şifreni gir"
                             size="normal"
+                            type="password"
                             required
                             hasError={errors?.password && touched?.password}
                             error={errors?.password}
@@ -92,6 +97,7 @@ const FormComponent = () => {
                             name="passwordConfirm"
                             placeholder="Şifreni doğrula"
                             size="normal"
+                            type="password"
                             required
                             hasError={
                                 errors?.passwordConfirm &&
@@ -110,6 +116,7 @@ const FormComponent = () => {
                                     : "formComponent__button--dark"
                             } `}
                             type="submit"
+                            disabled={errors.length > 0}
                         >
                             KAYIT OL
                         </button>

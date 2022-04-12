@@ -3,7 +3,10 @@ import * as yup from "yup";
 let schema = yup.object().shape({
     firstName: yup.string().max(16),
     lastName: yup.string().max(16),
-    email: yup.string().email().required("Bu alanın doldurulması zorunludur"),
+    email: yup
+        .string()
+        .email("Geçerli bir e-mail girin")
+        .required("Bu alanın doldurulması zorunludur"),
     userName: yup
         .string()
         .required("Bu alanın doldurulması zorunludur")
@@ -12,7 +15,10 @@ let schema = yup.object().shape({
         .string()
         .min(8, "Şifrenizin uzunluğu 8 karakterden uzun olmalıdır")
         .required("Bu alanın doldurulması zorunludur"),
-    passwordConfirm: yup.string().required("Bu alanın doldurulması zorunludur"),
+    passwordConfirm: yup
+        .string()
+        .required("Bu alanın doldurulması zorunludur")
+        .oneOf([yup.ref("password"), null], "Şifreniz eşleşmelidir"),
 });
 
 export default schema;

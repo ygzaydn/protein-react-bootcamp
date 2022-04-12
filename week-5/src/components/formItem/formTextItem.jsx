@@ -12,9 +12,9 @@ const FormTextItem = ({
     size,
     placeholder,
     required,
+    type,
 }) => {
     const { state } = useThemeContext();
-    console.log(error);
     return (
         <div
             className={`formTextItem ${
@@ -42,6 +42,7 @@ const FormTextItem = ({
                 id={id}
                 name={name}
                 placeholder={placeholder}
+                type={type}
             />
             {hasError && <span className="formTextItem__error">{error}</span>}
         </div>
