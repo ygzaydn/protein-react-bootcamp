@@ -1,0 +1,24 @@
+.app {
+    @include displayGridCenter;
+    height: 100vh;
+    transition: $transition;
+    &__container {
+        position: relative;
+        min-height: 700px;
+        min-width: 1400px;
+        display: flex;
+
+        &--light {
+            background: $form-background-light;
+        }
+        &--dark {
+            background: $form-background-dark;
+        }
+    }
+    &--light {
+        background: rgba($form-background-light, 0.1);
+    }
+    &--dark {
+        background: rgba($form-background-dark, 0.6);
+    }
+}

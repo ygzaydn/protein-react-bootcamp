@@ -1,0 +1,19 @@
+.formTextItem {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    color: $gray;
+    label {
+        margin-bottom: 0.5rem;
+    }
+    input {
+        padding: 0.5rem 0.8rem;
+    }
+
+    &--small {
+        flex: 1;
+    }
+    &--normal {
+        flex: 2;
+    }
+}

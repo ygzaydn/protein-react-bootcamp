@@ -1,0 +1,39 @@
+.formTextItem {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1rem 0;
+
+    &_label {
+        margin-bottom: 0.5rem;
+        &--dark {
+            color: $gray;
+        }
+        &--light {
+            color: $black;
+        }
+    }
+    &__input {
+        padding: 0.8rem 0.8rem;
+        background: transparent;
+        outline: none;
+        border: 0.2px solid $gray;
+        border-radius: 5px;
+        &--dark {
+            color: $gray;
+        }
+        &--light {
+            color: $black;
+        }
+        &--required {
+            &::after {
+                content: "*";
+                color: red;
+                margin-left: 0.2rem;
+            }
+        }
+    }
+    &__error {
+        color: red;
+        margin-top: 0.4rem;
+    }
+}

@@ -1,0 +1,14 @@
+.formGrid {
+    flex: 1;
+    padding: 2rem 6rem;
+    &__title {
+        padding: 0 2rem 1rem 0;
+        display: inline-flex;
+        &--light {
+            border-bottom: 5px solid $form-underline-light;
+        }
+        &--dark {
+            border-bottom: 5px solid $form-underline-dark;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.formComponent {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 6rem;
+    align-items: baseline;
+    &__form {
+        display: flex;
+        flex-direction: column;
+        &--smallGrid {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__button {
+        text-align: center;
+        padding: 0.8rem 4rem;
+        border: none;
+        outline: none;
+        color: $white;
+        &--light {
+            background-color: $image-box-light;
+        }
+        &--dark {
+            background-color: $image-box-dark;
+        }
+    }
+}

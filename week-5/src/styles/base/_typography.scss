@@ -1,0 +1,29 @@
+body {
+    font-family: "Oxygen", sans-serif;
+}
+
+.text {
+    transition: $transition;
+    &--light {
+        color: $image-text-light;
+    }
+    &--dark {
+        color: $image-text-dark;
+    }
+    &--black {
+        color: $black;
+    }
+    &--white {
+        color: white;
+    }
+}
+
+h2 {
+    padding: 4rem 0;
+    font-size: 2.25rem;
+}
+
+h4 {
+    padding: 2rem 0;
+    font-size: 1.25rem;
+}
