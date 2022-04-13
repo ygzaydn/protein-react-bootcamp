@@ -9,6 +9,9 @@
         &--smallGrid {
             display: flex;
             justify-content: space-between;
+            & > div:first-child {
+                margin-right: 2rem;
+            }
         }
     }
     &__button {
