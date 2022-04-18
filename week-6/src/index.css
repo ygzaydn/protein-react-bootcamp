@@ -1,0 +1,259 @@
+/* Resets & fixes & variables */
+
+:root{
+  --background-primary: #222;
+  --background-secondary: #7e7e7e;
+  --gradient-first:#ddd;
+  --gradient-second:#e8e8e8;
+  --boxshadow: inset 1px 3px 3px #222,
+  inset -1px -1px 3px #7e7e7e;
+}
+
+html{
+  font-size: 62.5%; /* 1rem is 10px for now 10/16 = 0.625*/
+}
+
+body {
+  background: var(--background-primary);
+  background-color: var(--background-primary);
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+/* Animation for Skeleton Loading*/
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%, 100% {
+    background-position: 140px;
+  }
+}
+
+
+/* Style of the page */
+.header {
+  position: relative;
+  margin-bottom: 7.5rem;
+}
+
+.header__background {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.header__marvelText {
+  position: absolute;
+  z-index: 2;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 15rem;
+}
+
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 50rem;
+}
+
+.nav-bar{
+  display: flex;
+  padding: 2rem 4rem;
+  justify-content: space-around;
+  margin-bottom: 5rem;
+}
+
+.nav-bar__input--div {
+  position: relative;
+}
+
+.nav-bar__input--div svg {
+  position: absolute;
+  width: 3rem;
+  left:0;
+  height: 6rem;
+  fill: lightgray;
+  padding:0 1rem;
+}
+
+.nav-bar__input--input, .nav-bar__button {
+  border:.2px solid lightgray;
+  outline: 0;
+  background-color: transparent;
+  color:white;
+  border-radius: 5px;
+  font-size: 1.75rem;
+  box-shadow: var(--boxshadow);
+}
+
+.nav-bar__input--input {
+  padding: 2rem 4rem 2rem 5rem;
+}
+
+.nav-bar__button{
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.nav-bar__input--resultdiv{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  position: absolute;
+  z-index:50;
+  width: 100%;
+}
+
+.nav-bar__input--result{
+  font-size: 1.75rem;
+  color:white;
+  padding:1rem 0rem 1rem 5rem;
+  transition: background-color, border .4s;
+  cursor: pointer;
+  border: 1px solid var(--background-primary);
+}
+
+.nav-bar__input--result:hover{
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-secondary);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4,min-content);
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  min-height: 40rem;
+}
+
+.cardItem {
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  margin: 3rem;
+  padding: 0 1rem;
+  display:flex;
+  flex-direction: column;
+  transition: all .4s;
+}
+
+.cardItem:hover {
+  background-color:white;
+  color: var(--background-primary);
+}
+
+.cardItem:hover .cardItem__text {
+  font-size: 1.75rem;
+}
+
+.cardItem__heroImage--grid {
+  position: relative;
+  top: -3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid white;
+  width: 18rem;
+  height: 27rem;
+  overflow:hidden;
+}
+
+.cardItem__heroImage--image {
+  width: 100%;
+}
+
+.cardItem__heroImage--loading {
+  visibility: hidden;
+}
+
+.cardItem__heroImage--gridloading {
+  background-image: linear-gradient(90deg, var(--gradient-first) 0px, var(--gradient-second)  40px, var(--gradient-first)  80px);
+  background-size: 60rem;
+  animation: shine-lines 1.6s infinite linear;
+}
+
+.cardItem__text {
+  position: relative;
+  min-height: 5rem;
+  top: -1rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: 1.5rem;
+  transition: all .4s;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding-right: 3rem;
+  
+}
+
+.pagination > span {
+  padding: 1rem 1.5rem ;
+  color: var(--background-secondary);
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0 .2rem;
+}
+
+.pagination__number, .pagination__arrow {
+  cursor: pointer;
+  transition: all .4s;
+  border-radius: 20%;
+}
+
+pagination__arrow img{
+  transition: all .4s;
+} 
+
+.pagination__number:hover, .pagination__arrow:hover {
+  color: white;
+}
+
+.pagination__number-active:hover {
+  background: var(--background-secondary);
+}
+
+.pagination__number-active:hover {
+  background: var(--background-secondary);
+}
+
+.pagination__arrow:hover img {
+  filter: brightness(0) invert(100%);
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  html{
+    font-size: 57.5%; /* Controls the overall fontSize and helps me on responsiveness */
+  }
+  .cards {
+    grid-template-columns: repeat(3,min-content);
+    justify-content: center;
+  }
+  .pagination {
+    padding: 0 2rem;
+    margin-bottom: 5rem;
+    justify-content: center;
+  }  
+}
+
+@media only screen and (max-width: 800px) {
+  html{
+    font-size: 50%; /* Controls the overall fontSize and helps me on responsiveness */
+  }
+  .cards {
+    grid-template-columns: min-content;    
+  }
+  .pagination > span, .pagination__number-active {
+    padding: .5rem;
+  }
+  .header__marvelText{
+    height: 10rem;
+  }
+}
