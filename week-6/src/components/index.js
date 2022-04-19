@@ -4,5 +4,14 @@ import CardGrid from "./cardGrid/cardGrid";
 import Card from "./card/card";
 import Pagination from "./pagination/pagination";
 import DropdownButton from "./dropdownButton/dropdownButton";
+import InputComponent from "./inputComponent/inputComponent";
 
-export { Header, Navbar, CardGrid, Card, Pagination, DropdownButton };
+export {
+    Header,
+    Navbar,
+    CardGrid,
+    Card,
+    Pagination,
+    DropdownButton,
+    InputComponent,
+};

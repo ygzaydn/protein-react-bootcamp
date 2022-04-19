@@ -36,10 +36,7 @@ const DropdownButton = ({ options }) => {
 
     const clickDetector = (e) => {
         const button = buttonRef.current;
-        const className = e.target.className;
-        console.log(!e.target.contains(button));
-
-        if (e.target.contains(button)) {
+        if (!button.contains(e.target)) {
             setOpen(false);
         } else {
             setOpen(true);
