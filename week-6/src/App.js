@@ -78,7 +78,7 @@ function App() {
             <Header />
             <section className="content" ref={contentGrid}>
                 <Navbar />
-                <CardGrid information={information} />
+                <CardGrid information={information} loading={loading} />
                 <Pagination information={information} page={page} />
             </section>
         </div>
