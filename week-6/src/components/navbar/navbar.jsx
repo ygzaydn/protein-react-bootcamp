@@ -11,6 +11,7 @@ const Navbar = () => {
     const [language, setLanguage] = useState("tr");
     const searchGrid = useRef(null);
     const resultGrid = useRef(null);
+    const buttonRef = useRef(null);
 
     const { t, i18n } = useTranslation();
 
@@ -20,6 +21,7 @@ const Navbar = () => {
 
     useEffect(() => {
         document.addEventListener("mousedown", clickDetector);
+
         return () => {
             document.removeEventListener("mousedown", clickDetector);
         };
@@ -91,7 +93,12 @@ const Navbar = () => {
                     onChange={searchHero}
                     ref={searchGrid}
                 />
-                <div className="nav-bar__input--resultdiv" ref={resultGrid}>
+
+                <div
+                    className="nav-bar__input--resultdiv"
+                    style={visible ? { zIndex: 50 } : { zIndex: -1 }}
+                    ref={resultGrid}
+                >
                     {characterNames?.map((el) => (
                         <span
                             className={
@@ -110,14 +117,15 @@ const Navbar = () => {
             <button
                 className="nav-bar__button"
                 onClick={() => changeLanguage()}
+                ref={buttonRef}
             >
                 {language === "tr" ? (
                     <>
-                        <strong>TR</strong> / EN
+                        <strong>TR / </strong> EN
                     </>
                 ) : (
                     <>
-                        TR / <strong>EN</strong>
+                        TR <strong>/ EN</strong>
                     </>
                 )}
             </button>
