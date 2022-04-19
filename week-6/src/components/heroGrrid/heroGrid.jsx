@@ -45,16 +45,16 @@ const HeroGrid = ({ chosen, setChosen }) => {
               <div className="hero__seriesDiv">
                 <h4>Series</h4>
                 {chosen.series.available &&
-                  chosen.series.items.map((el) => (
-                    <span key={el.name}>{el.name}</span>
-                  ))}
+                  chosen.series.items
+                    .filter(({ el, ind }) => ind < 5)
+                    .map((el) => <span key={el.name}>{el.name}</span>)}
               </div>
               <div className="hero__storiesDiv">
                 <h4>Stories</h4>
                 {chosen.stories.available &&
-                  chosen.stories.items.map((el) => (
-                    <span key={el.name}>{el.name}</span>
-                  ))}
+                  chosen.stories.items
+                    .filter(({ el, ind }) => ind < 5)
+                    .map((el) => <span key={el.name}>{el.name}</span>)}
               </div>
             </div>
           </div>
