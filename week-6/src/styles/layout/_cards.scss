@@ -9,6 +9,10 @@
         justify-content: center;
     }
     @include respond(tab-port) {
-        grid-template-columns: min-content;
+        grid-template-columns: repeat(2, min-content);
+    }
+    @include respond(mobile){
+        grid-template-columns: min-content
+
     }
 }

@@ -1,0 +1,61 @@
+.hero{
+    display: flex;
+    padding: 2rem 1rem;
+    margin-bottom:20rem;
+    &__imageDiv{
+        padding: 1rem 2rem;
+        margin:auto;
+    }
+    &__image{
+        max-width:40vw;
+    }
+    &__infoDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        
+    }
+    &__name{
+        color:lightgray;
+        font-size: 6rem;
+        text-align: center;
+    }
+    &__link{
+        color:lightblue;
+        font-size: 2rem;
+        text-decoration: underline;
+        cursor: pointer;
+        display: inline;
+    }
+    &__description{
+        color:lightgray;
+        font-size: 2rem;
+        font-weight: 200;
+
+    }
+    &__additionalDiv{
+        display: flex;
+    }
+    &__seriesDiv, &__storiesDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        & h4 {
+            color:antiquewhite;
+            font-size: 3.5rem;
+            align-self: center;
+           
+        }
+        & span {
+           font-size: 2rem;
+           padding: 1rem 2rem;
+           text-align: start;
+           color:lightblue;
+           cursor: pointer;
+           text-decoration: underline;
+           display: inline;
+        }
+    }
+  
+}
