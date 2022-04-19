@@ -1,0 +1,22 @@
+.header {
+    position: relative;
+    margin-bottom: 7.5rem;
+    &__background {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+    &__marvelText {
+        position: absolute;
+        z-index: 2;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 15rem;
+    }
+    @include respond(tab-land) {
+        &__marvelText {
+            height: 10rem;
+        }
+    }
+}

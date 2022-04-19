@@ -1,0 +1,88 @@
+.nav-bar {
+    display: flex;
+    padding: 2rem 4rem;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+
+    &__button {
+        cursor: pointer;
+        padding: 2rem;
+    }
+
+    &__input--div {
+        position: relative;
+    }
+
+    & &__input--div svg {
+        position: absolute;
+        width: 3rem;
+        left: 0;
+        height: 6rem;
+        fill: lightgray;
+        padding: 0 1rem;
+    }
+
+    &__input--input,
+    &__button {
+        border: 0.2px solid lightgray;
+        outline: 0;
+        background-color: transparent;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.75rem;
+        box-shadow: --boxshadow;
+    }
+
+    &__input--input {
+        padding: 2rem 4rem 2rem 5rem;
+        width: 30rem;
+    }
+
+    &__input--result {
+        font-size: 1.75rem;
+        color: white;
+        padding: 1.5rem 2rem 1.5rem 2rem;
+        transition: background-color, border 0.4s;
+        cursor: pointer;
+        border: 1px solid --background-primary;
+        background-color: black;
+        z-index: 50;
+        &--up {
+            font-size: 1.75rem;
+            color: white;
+            padding: 1.5rem 2rem 1.5rem 2rem;
+            transition: background-color, border 0.4s;
+            cursor: pointer;
+            border: 1px solid --background-primary;
+            background-color: black;
+            z-index: 50;
+            animation-name: scrollup;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+        }
+        &--down {
+            font-size: 1.75rem;
+            color: white;
+            padding: 1.5rem 2rem 1.5rem 2rem;
+            transition: background-color, border 0.4s;
+            cursor: pointer;
+            border: 1px solid --background-primary;
+            background-color: black;
+            z-index: 50;
+            animation-name: scrolldown;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
+        }
+        &:hover {
+            background-color: --background-primary;
+            border: 1px solid --background-secondary;
+        }
+    }
+
+    & &__input--resultdiv {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+    }
+}

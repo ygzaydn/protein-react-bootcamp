@@ -1,0 +1,10 @@
+html {
+    font-size: 62.5%; /* 1rem is 10px for now 10/16 = 0.625*/
+}
+
+body {
+    background: $background-primary;
+    background-color: $background-primary;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}

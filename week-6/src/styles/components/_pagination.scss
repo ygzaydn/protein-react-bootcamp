@@ -1,0 +1,54 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding-right: 3rem;
+
+    & > span {
+        padding: 1rem 1.75rem;
+        color: $background-secondary;
+        font-weight: 500;
+        font-size: 2rem;
+        margin: 0 0.2rem;
+    }
+
+    &__number,
+    &__arrow {
+        cursor: pointer;
+        transition: all 0.4s;
+        border-radius: 20%;
+    }
+
+    &__arrow img {
+        transition: all 0.4s;
+    }
+
+    &__number-active {
+        background: $background-secondary;
+        color: $background-primary !important;
+    }
+
+    &__number:hover,
+    &__arrow:hover {
+        color: $background-primary;
+    }
+    &__number-active:hover,
+    &__number:hover {
+        background: $background-secondary;
+    }
+    &__arrow:hover img {
+        filter: brightness(0) invert(100%);
+    }
+    @include respond(tab-land) {
+        padding: 0 2rem;
+        margin-bottom: 5rem;
+        justify-content: center;
+    }
+    @include respond(tab-port) {
+        & > span,
+        &__number-active {
+            padding: 0.5rem;
+        }
+    }
+}
