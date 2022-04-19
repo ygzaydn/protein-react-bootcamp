@@ -16,7 +16,7 @@ const InputComponent = ({ setHero, hero }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (chosen) {
+    if (chosen?.id) {
       fetchCharacter(chosen.id);
     }
   }, [chosen]);
@@ -36,17 +36,21 @@ const InputComponent = ({ setHero, hero }) => {
     if (hero?.id) {
       navigate(`/hero:${hero.id}`);
     }
-  }, [hero]);
+  }, []);
+
   const searchHero = (e) => setSearchText(e.target.value);
 
   const fetchCharacter = (id) => {
-    axios
-      .get(
-        `/characters/${id}?ts=1&apikey=${process.env.REACT_APP_PUBLIC_KEY}&hash=${process.env.REACT_APP_ENCODED_KEY}`
-      )
-      .then((resp) => {
-        setHero(resp.data.data.results[0]);
-      });
+    if (id) {
+      axios
+        .get(
+          `/characters/${id}?ts=1&apikey=${process.env.REACT_APP_PUBLIC_KEY}&hash=${process.env.REACT_APP_ENCODED_KEY}`
+        )
+        .then((resp) => {
+          setHero(resp.data.data.results[0]);
+          navigate(`/hero:${resp.data.data.results[0].id}`);
+        });
+    }
   };
 
   const getCharacterInfo = (text, setFunction) => {

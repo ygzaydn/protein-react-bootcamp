@@ -13,6 +13,7 @@
         left: 50%;
         transform: translateX(-50%);
         height: 15rem;
+        cursor: pointer;
     }
     @include respond(tab-land) {
         margin-bottom: 3.5rem;

@@ -5,6 +5,7 @@ import axios from "./constants/axios";
 import { Header, Navbar, Pagination } from "./components";
 
 import RoutePath from "./router/router";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const [page, setPage] = useState(1); // tracks current page
@@ -14,6 +15,8 @@ function App() {
   });
   const [chosen, setChosen] = useState({});
   const contentGrid = useRef(null);
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
@@ -69,7 +72,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header setChosen={setChosen} chosen={chosen} />
       <section className="content" ref={contentGrid}>
         <Navbar setChosen={setChosen} chosen={chosen} />
         <RoutePath
@@ -78,7 +81,9 @@ function App() {
           setChosen={setChosen}
           chosen={chosen}
         />
-        {!chosen.id && <Pagination information={information} page={page} />}
+        {pathname === "/" && (
+          <Pagination information={information} page={page} />
+        )}
       </section>
     </div>
   );

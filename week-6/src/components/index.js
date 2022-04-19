@@ -5,7 +5,7 @@ import Card from "./card/card";
 import Pagination from "./pagination/pagination";
 import DropdownButton from "./dropdownButton/dropdownButton";
 import InputComponent from "./inputComponent/inputComponent";
-import HeroGrid from "./heroGrrid/heroGrid";
+import HeroGrid from "./heroGrid/heroGrid";
 
 export {
   Header,

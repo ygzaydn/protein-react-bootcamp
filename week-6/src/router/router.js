@@ -7,7 +7,14 @@ const RoutePath = ({ information, loading, chosen, setChosen }) => {
     <Routes>
       <Route
         path="/"
-        element={<CardGrid information={information} loading={loading} />}
+        element={
+          <CardGrid
+            information={information}
+            loading={loading}
+            chosen={chosen}
+            setChosen={setChosen}
+          />
+        }
       />
       <Route
         path="/hero:id"
