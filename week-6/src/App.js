@@ -77,9 +77,9 @@ function App() {
         <Navbar setChosen={setChosen} chosen={chosen} />
         <RoutePath
           information={information}
-          page={page}
           setChosen={setChosen}
           chosen={chosen}
+          loading={loading}
         />
         {pathname === "/" && (
           <Pagination information={information} page={page} />
