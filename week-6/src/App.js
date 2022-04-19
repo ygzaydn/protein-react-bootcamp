@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 import { CardGrid, Header, Navbar, Pagination } from "./components";
@@ -13,8 +13,8 @@ function App() {
     const [information, setInformation] = useState({
         heroes: Array(20).fill({}),
     });
-    const contentGrid = useRef(null);
     const { t, i18n } = useTranslation();
+    const contentGrid = useRef(null);
 
     useEffect(() => {
         // Hash changer event listener to adapt hash changes. So that users can browse any page they want to. ..../#<page-number>
