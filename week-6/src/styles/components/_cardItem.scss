@@ -14,7 +14,7 @@
         color: $background-primary;
     }
 
-    & &:hover &__text {
+    &:hover &__text {
         font-size: 1.75rem;
     }
 
@@ -28,7 +28,7 @@
         overflow: hidden;
     }
 
-    & &__heroImage--image {
+    &__heroImage--image {
         width: 100%;
     }
 

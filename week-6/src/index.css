@@ -247,9 +247,7 @@ body {
   color: white !important;
 }
 
-
 .pagination__number:hover, .pagination__arrow:hover {
-  
   color: var(--background-primary);
 }
 
