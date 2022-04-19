@@ -1,5 +1,12 @@
 {
 	"searchBar" : {
 		"text":"Enter hero name..."
+	},
+	"heroPage": {
+"series": "Series",
+"stories": "Stories",
+"nodesc": "No available description",
+"nostory": "No available story",
+"noseries": "No available series"
 	}
 }

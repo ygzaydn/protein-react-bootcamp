@@ -1,5 +1,12 @@
 {
 	"searchBar" : {
-		"text":"Karakter adı girin..."
+		"text":"Kahraman adını girin..."
+	},
+	"heroPage": {
+"series": "Seriler",
+"stories": "Hikayeler",
+"nodesc": "Kullanılabilir açıklama yok",
+"nostory": "Herhangi bir hikaye bulunamadı",
+"noseries": "Herhangi bir seri bulunamadı"
 	}
 }
