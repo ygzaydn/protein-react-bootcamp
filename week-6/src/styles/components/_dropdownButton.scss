@@ -1,0 +1,65 @@
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &__button {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: $transition;
+        padding: 0.1rem 2rem 0.1rem 0;
+        border: 0.2px solid lightgray;
+        border-radius: 10rem;
+        outline: 0;
+        background-color: transparent;
+        min-width: 15rem;
+        color: white;
+        font-size: 1.75rem;
+        & svg {
+            margin-right: 1rem;
+        }
+        & strong {
+            font-size: 2.25rem;
+            position: relative;
+            top: 0.25rem;
+        }
+        & p {
+            padding: 0 2rem;
+        }
+        &:hover {
+            background-color: lightgray;
+            color: $background-primary;
+            .dropdown__button > svg {
+                fill: $background-primary !important;
+            }
+        }
+    }
+    &__menu {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: 50;
+        &--hidden {
+            display: none;
+        }
+        &--visible {
+            display: block;
+        }
+        &--span {
+            display: block;
+            color: lightgray;
+            font-size: 1.75rem;
+            padding: 1.5rem 2rem 1.5rem 2rem;
+            background-color: black;
+            border: 1px solid black;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+                background-color: $background-primary;
+                border: 1px solid $background-secondary;
+            }
+        }
+    }
+}

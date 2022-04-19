@@ -11,11 +11,20 @@ i18n.use(initReactI18next).init({
         tr: {
             translation: require("./constants/language/tr.json"),
         },
+        fr: {
+            translation: require("./constants/language/fr.json"),
+        },
     },
     ns: ["translation"],
     defaultNS: "translation",
 });
 
-i18n.languages = ["en", "tr"];
+i18n.languages = ["en", "tr", "fr"];
+
+export const languages = [
+    { name: "English", code: "en" },
+    { name: "Turkish", code: "tr" },
+    { name: "French", code: "fr" },
+];
 
 export default i18n;

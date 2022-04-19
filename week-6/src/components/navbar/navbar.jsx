@@ -3,15 +3,16 @@ import axios from "../../constants/axios";
 
 import { Glass } from "../../icons";
 import { useTranslation } from "react-i18next";
+import DropdownButton from "../dropdownButton/dropdownButton";
+
+import { languages } from "../../i18next";
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [characterNames, setCharacterNames] = useState([]);
-    const [language, setLanguage] = useState("tr");
     const searchGrid = useRef(null);
     const resultGrid = useRef(null);
-    const buttonRef = useRef(null);
 
     const { t, i18n } = useTranslation();
 
@@ -72,16 +73,6 @@ const Navbar = () => {
         }
     };
 
-    const changeLanguage = () => {
-        if (language === "tr") {
-            setLanguage("en");
-            i18n.changeLanguage("en");
-        } else {
-            setLanguage("tr");
-            i18n.changeLanguage("tr");
-        }
-    };
-
     return (
         <section className="nav-bar">
             <div className="nav-bar__input--div">
@@ -113,22 +104,7 @@ const Navbar = () => {
                     ))}
                 </div>
             </div>
-
-            <button
-                className="nav-bar__button"
-                onClick={() => changeLanguage()}
-                ref={buttonRef}
-            >
-                {language === "tr" ? (
-                    <>
-                        <strong>TR / </strong> EN
-                    </>
-                ) : (
-                    <>
-                        TR <strong>/ EN</strong>
-                    </>
-                )}
-            </button>
+            <DropdownButton options={languages} />
         </section>
     );
 };

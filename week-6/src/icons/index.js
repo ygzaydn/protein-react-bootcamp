@@ -1,3 +1,4 @@
 import Glass from "./glass";
+import Language from "./language";
 
-export { Glass };
+export { Glass, Language };

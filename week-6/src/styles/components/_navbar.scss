@@ -3,34 +3,22 @@
     padding: 2rem 4rem;
     justify-content: space-around;
     margin-bottom: 5rem;
-
-    &__button {
-        cursor: pointer;
-        padding: 2rem;
-
-        transition: $transition;
-        &:hover {
-            background-color: lightgray;
-            color: $background-primary;
-        }
-    }
+    align-items: center;
 
     &__input--div {
         position: relative;
+        & svg {
+            position: absolute;
+            width: 3rem;
+            left: 0;
+            height: 50%;
+            fill: lightgray;
+            padding: 0 1rem;
+            transform: translateY(50%);
+        }
     }
 
-    &__input--div svg {
-        position: absolute;
-        width: 3rem;
-        left: 0;
-        height: 50%;
-        fill: lightgray;
-        padding: 0 1rem;
-        transform: translateY(50%);
-    }
-
-    &__input--input,
-    &__button {
+    &__input--input {
         border: 0.2px solid lightgray;
         outline: 0;
         background-color: transparent;
@@ -39,9 +27,6 @@
         font-size: 1.75rem;
         box-shadow: --boxshadow;
         margin: 1rem 0;
-    }
-
-    &__input--input {
         padding: 2rem 4rem 2rem 5rem;
         width: 30rem;
     }
