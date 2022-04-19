@@ -12,40 +12,43 @@ const DropdownButton = ({ options }) => {
 
     useEffect(() => {
         document.addEventListener("mousedown", clickDetector);
-
         return () => {
             document.removeEventListener("mousedown", clickDetector);
         };
     }, [buttonRef]);
 
+    useEffect(() => {
+        if (!open) {
+            langRef.current.className = "dropdown__menu dropdown__menu--hidden";
+        } else {
+            langRef.current.className =
+                "dropdown__menu dropdown__menu--visible";
+        }
+    }, [open]);
+
     const openDropdown = () => {
-        if (langRef.current) {
-            if (open) {
-                setOpen(false);
-                langRef.current.className =
-                    "dropdown__menu dropdown__menu--hidden";
-            } else {
-                setOpen(true);
-                langRef.current.className =
-                    "dropdown__menu dropdown__menu--visible";
-            }
+        if (open) {
+            setOpen(false);
+        } else {
+            setOpen(true);
         }
     };
 
     const clickDetector = (e) => {
         const button = buttonRef.current;
         const className = e.target.className;
+        console.log(!e.target.contains(button));
 
-        if (button && className !== "dropdown__menu--span") {
+        if (e.target.contains(button)) {
             setOpen(false);
-            langRef.current.className = "dropdown__menu dropdown__menu--hidden";
+        } else {
+            setOpen(true);
         }
     };
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
         setOpen(false);
-        openDropdown();
     };
 
     const returnLang = () => {
@@ -54,12 +57,8 @@ const DropdownButton = ({ options }) => {
     };
 
     return (
-        <div className="dropdown">
-            <button
-                className="dropdown__button"
-                onClick={() => openDropdown()}
-                ref={buttonRef}
-            >
+        <div className="dropdown" ref={buttonRef}>
+            <button className="dropdown__button">
                 <Language />
                 <p>{returnLang()}</p>
 

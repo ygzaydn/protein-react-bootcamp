@@ -16,6 +16,7 @@
         min-width: 15rem;
         color: white;
         font-size: 1.75rem;
+        min-width: 20rem;
         & svg {
             margin-right: 1rem;
         }
@@ -26,13 +27,6 @@
         }
         & p {
             padding: 0 2rem;
-        }
-        &:hover {
-            background-color: lightgray;
-            color: $background-primary;
-            .dropdown__button > svg {
-                fill: $background-primary !important;
-            }
         }
     }
     &__menu {
