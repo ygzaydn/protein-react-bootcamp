@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import axios from "./constants/axios";
 
 import { CardGrid, Header, Navbar, Pagination } from "./components";
 
@@ -35,7 +35,7 @@ function App() {
         if (!storageItems[page]) {
             axios
                 .get(
-                    `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${
+                    `/characters?ts=1&apikey=${
                         process.env.REACT_APP_PUBLIC_KEY
                     }&hash=${process.env.REACT_APP_ENCODED_KEY}&offset=${
                         (page - 1) * 20

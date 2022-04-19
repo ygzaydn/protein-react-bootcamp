@@ -1,5 +1,8 @@
 html {
     font-size: 62.5%; /* 1rem is 10px for now 10/16 = 0.625*/
+    @include respond(tab-land) {
+        font-size: 50%;
+    }
 }
 
 body {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from "../../constants/axios";
 
 import { Glass } from "../../icons";
 import { useTranslation } from "react-i18next";
@@ -33,7 +33,7 @@ const Navbar = () => {
             if (!storage[`${text}`]) {
                 axios
                     .get(
-                        `https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${process.env.REACT_APP_PUBLIC_KEY}&hash=${process.env.REACT_APP_ENCODED_KEY}&nameStartsWith=${text}`
+                        `/characters?ts=1&apikey=${process.env.REACT_APP_PUBLIC_KEY}&hash=${process.env.REACT_APP_ENCODED_KEY}&nameStartsWith=${text}`
                     )
                     .then((resp) => {
                         const item = resp.data.data.results.slice(0, 5);
