@@ -16,13 +16,7 @@ REACT_APP_ENCODED_KEY = xxxxxxxxx
 
 After you set your `.env.local` file, next step is to install npm packages with `npm i`. Now you are ready to start.
 
-Some key features that I've add:
-
--   I have used hash implementation. Every page has different hash value (for page 1: localhost:3000/#1, overall structure localhost:3000/#<pagenumber>). By doing that, I allow users to surf around desired page. (e.g localhost:3000/#53 directly goes to page 53.)
--   I have set sessionStorage to prevent unnecessary fetches.
--   I have used sessionStorage to keep maximum number of elements that API serves us. By doing it, I am able to track maximum number of pages dynamically.
--   I have simulated skeleton loading. When client ask data from server, users will see gray background until operation is successful.
--   I also used Google's firebase hosting service for lazy fingers. :smile: You can reach [the website here](https://bootcampweektwo.web.app)
+You can reach my solution [here](https://marvelheroes0001.web.app)
 
 ## Snapshots
 
@@ -34,6 +28,3 @@ Some key features that I've add:
 
 ![tablet](./tablet.gif)
 
--   Mobile
-
-![mobile](mobile.gif)
