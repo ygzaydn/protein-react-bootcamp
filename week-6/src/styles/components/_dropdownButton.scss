@@ -36,10 +36,14 @@
         background-color: black;
         z-index: 50;
         &--hidden {
-            display: none;
+            animation-name: scrollup;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
         }
         &--visible {
-            display: block;
+            animation-name: scrolldown;
+            animation-duration: 0.2s;
+            animation-fill-mode: forwards;
         }
         &--span {
             display: block;

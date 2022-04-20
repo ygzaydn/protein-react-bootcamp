@@ -3,13 +3,19 @@ import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { getInformationContext } from "../../contexts/informationContext";
 import { fetchCharacter } from "../../utils/axiosCalls";
+import { useNavigate } from "react-router";
 
 const HeroGrid = () => {
     const { chosen, setChosen, loading, setLoading } = getInformationContext();
     const { id } = useParams();
     const idToUse = id ? id.split(":")[1] : null;
     const { t } = useTranslation();
-    console.log(loading);
+    const { navigate } = useNavigate();
+    useEffect(() => {
+        if (!chosen?.id) {
+            fetchCharacter(idToUse, setLoading, setChosen, navigate);
+        }
+    }, []);
     return (
         <div className="hero">
             {chosen?.id ? (
@@ -32,9 +38,21 @@ const HeroGrid = () => {
                                 className="hero__image"
                             />
                         </div>
-                        <div style={{ paddingLeft: "20rem" }}>
+                        <div className="hero__nameGrid">
                             <h2 className="hero__name">{chosen.name}</h2>
-
+                            <h6
+                                className="hero__link"
+                                onClick={() =>
+                                    window.open(
+                                        chosen?.urls?.filter(
+                                            (el) => el.type == "wiki"
+                                        )[0].url,
+                                        "_blank"
+                                    )
+                                }
+                            >
+                                {t("heroPage.details")}
+                            </h6>
                             <h4 className="hero__description">
                                 {chosen.description
                                     ? chosen.description

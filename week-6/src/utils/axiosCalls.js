@@ -52,6 +52,7 @@ export const fetchCharacter = (
                 )
                 .then((resp) => {
                     const item = resp.data.data.results[0];
+                    console.log(item);
                     stateFunc({ ...item });
                     sessionStorage.setItem(
                         "hero",

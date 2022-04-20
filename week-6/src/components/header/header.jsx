@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
 
 import { BackgroundImage, MarvelText } from "../../assets/";
@@ -7,11 +7,11 @@ import { getInformationContext } from "../../contexts/informationContext";
 const Header = () => {
     const { setChosen, chosen } = getInformationContext();
     const navigate = useNavigate();
-    useEffect(() => {
-        if (!chosen?.id) {
-            navigate("/");
-        }
-    }, [chosen]);
+
+    const goHome = () => {
+        setChosen({});
+        navigate("/");
+    };
 
     return (
         <section className="header">
@@ -23,7 +23,7 @@ const Header = () => {
             <img
                 src={MarvelText}
                 alt="Marvel Text"
-                onClick={() => setChosen({})}
+                onClick={() => goHome()}
                 className="header__marvelText"
             />
         </section>
