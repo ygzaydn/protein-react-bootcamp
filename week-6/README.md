@@ -24,7 +24,7 @@ You can reach my solution [here](https://marvelheroes0001.web.app)
 
 ![desktop](./desktop.gif)
 
--   Tablet
+-   Mobile
 
-![tablet](./tablet.gif)
+![tablet](./mobile.gif)
 
