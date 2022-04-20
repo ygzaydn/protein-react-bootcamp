@@ -1,76 +1,105 @@
-.hero{
+.hero {
     display: flex;
     padding: 2rem 1rem;
-    margin-bottom:20rem;
-    justify-content: center;
-    flex-direction: row;
-    &__imageDiv{
+    margin-bottom: 20rem;
+    justify-content: space-around;
+    flex-direction: column;
+    &__upperDiv {
+        display: flex;
+        & > div {
+            width: 50%;
+        }
+    }
+    &__imageDiv {
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: center;
+        width: 40rem !important;
+        height: 35rem;
+    }
+    &__imageDiv--loading {
         padding: 1rem 2rem;
         align-self: center;
+        width: 40rem !important;
+        height: 35rem;
+        border-radius: 50%;
+        background-image: linear-gradient(
+            90deg,
+            $gradient-first 0px,
+            $gradient-second 40px,
+            $gradient-first 80px
+        );
+        background-size: 400rem;
+        animation: shine-lines 2s infinite linear;
     }
-    &__image{
-        max-width:20vw;
+    &__image {
+        width: 40rem;
+        height: 35rem;
         border-radius: 50%;
     }
-    &__infoDiv{
+    &__infoDiv {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        
+        padding: 0 3rem;
     }
-    &__name{
-        color:lightgray;
+    &__name {
+        color: lightgray;
         font-size: 6rem;
         text-align: center;
     }
-    &__description{
-        color:lightgray;
+    &__description {
+        color: lightgray;
         font-size: 2rem;
         font-weight: 200;
-
     }
-    &__additionalDiv{
+    &__additionalDiv {
         display: flex;
         width: 100%;
         justify-content: space-around;
     }
-    &__seriesDiv, &__storiesDiv{
+    &__seriesDiv,
+    &__storiesDiv {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex:1;
+        flex: 1;
+        margin: 2rem 0.2rem;
+        padding: 0.2rem 2rem;
         & h4 {
-            color:antiquewhite;
+            color: antiquewhite;
             font-size: 3.5rem;
             align-self: center;
-           
         }
         & span {
-           font-size: 2rem;
-           padding: 1rem 2rem;
-           text-align: start;
-           color:lightblue;
-           display: inline;
+            font-size: 2rem;
+            padding: 1rem 4rem;
+            text-align: start;
+            color: lightblue;
+            display: inline;
         }
 
         & h5 {
-            color:lightgray;
+            color: lightgray;
             font-size: 2rem;
             font-weight: 200;
         }
     }
-  @include respond(tab-land){
-      flex-direction: column;
-      padding: 0 10rem;
-      &__name{
-          align-self: center;
-      }
-      &__description{
-          align-self: center;
-      }
-      &__image{
-          max-width: 40vw;
-      }
-  }
+    &__seriesDiv {
+        border-right: 0.1px solid antiquewhite;
+    }
+    @include respond(tab-land) {
+        flex-direction: row;
+        padding: 0 10rem;
+        &__name {
+            align-self: center;
+        }
+        &__description {
+            align-self: center;
+        }
+        &__image {
+            max-width: 40vw;
+        }
+    }
 }

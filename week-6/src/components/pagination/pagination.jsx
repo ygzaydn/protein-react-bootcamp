@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 import { RightArrow, LeftArrow } from "../../assets";
+import { getInformationContext } from "../../contexts/informationContext";
 
-const Pagination = ({ information, page }) => {
+const Pagination = () => {
+    const { information, page } = getInformationContext();
     const [paginationArray, setPaginationArray] = useState([]);
     const longSkip = 4;
+
     useEffect(() => {
         generatePaginationArray(page);
     }, [page, information.limit]);

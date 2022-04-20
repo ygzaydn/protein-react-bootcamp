@@ -2,26 +2,13 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import { CardGrid, HeroGrid } from "../components";
 
-const RoutePath = ({ information, loading, chosen, setChosen }) => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <CardGrid
-            information={information}
-            loading={loading}
-            chosen={chosen}
-            setChosen={setChosen}
-          />
-        }
-      />
-      <Route
-        path="/hero:id"
-        element={<HeroGrid chosen={chosen} setChosen={setChosen} />}
-      />
-    </Routes>
-  );
+const RoutePath = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<CardGrid />} />
+            <Route path="/hero:id" element={<HeroGrid />} />
+        </Routes>
+    );
 };
 
 export default RoutePath;
